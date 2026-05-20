@@ -481,6 +481,134 @@ details.exam-details summary:hover{color:var(--vermillion-dark)}
 .mock-history-row .verdict-mini.pass{background:var(--correct);color:#fff}
 .mock-history-row .verdict-mini.fail{background:var(--incorrect);color:#fff}
 
+/* Topic filter (論点絞り込み) */
+.filter-row{
+  display:flex;gap:8px;flex-wrap:wrap;
+  padding:10px 14px;background:#fff;border:1px solid var(--line);
+  margin-bottom:14px;font-size:12px;align-items:center;
+}
+.filter-label{color:var(--ink-faint);letter-spacing:.1em;font-size:11px;text-transform:uppercase;margin-right:6px}
+.filter-chip{
+  padding:5px 12px;border:1px solid var(--line);background:var(--paper);
+  cursor:pointer;font-size:12px;color:var(--ink-soft);
+  transition:all .15s;
+}
+.filter-chip:hover{border-color:var(--ink-soft);color:var(--ink)}
+.filter-chip.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+.mastery-cell{
+  cursor:pointer;
+}
+.mastery-cell:hover{
+  background:#fff;border-color:var(--ink-soft);
+}
+.mastery-cell:hover .name{color:var(--vermillion-dark)}
+
+/* Topic selector in practice setup */
+.topic-selector{
+  margin-top:14px;padding:14px 16px;background:#fff;border:1px solid var(--line);
+}
+.topic-selector-head{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:12px;color:var(--ink-soft);margin-bottom:10px;
+}
+.topic-selector-head .count{font-family:var(--font-serif);font-weight:700;color:var(--ink)}
+.topic-selector-actions{display:flex;gap:8px;font-size:11px}
+.topic-selector-actions a{
+  color:var(--vermillion);cursor:pointer;text-decoration:underline;
+  text-underline-offset:2px;
+}
+.topic-selector-actions a:hover{color:var(--vermillion-dark)}
+.topic-checks{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:6px;max-height:280px;overflow-y:auto;
+  padding:8px;background:var(--paper);
+}
+.topic-check{
+  display:flex;align-items:center;gap:8px;
+  padding:6px 10px;cursor:pointer;font-size:12px;
+  border:1px solid transparent;background:#fff;color:var(--ink);
+  transition:all .12s;line-height:1.5;
+}
+.topic-check:hover{border-color:var(--line)}
+.topic-check.checked{background:var(--paper);border-color:var(--ink-soft)}
+.topic-check input[type="checkbox"]{
+  margin:0;flex:0 0 auto;cursor:pointer;
+  accent-color:var(--vermillion);
+}
+.topic-check .name{
+  flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.topic-check .pct{
+  flex:0 0 auto;font-size:10px;color:var(--ink-faint);font-family:var(--font-serif);
+}
+
+/* Bookmark button */
+.bookmark-btn{
+  background:none;border:none;cursor:pointer;
+  font-size:22px;padding:4px 8px;color:var(--ink-faint);
+  transition:all .15s;line-height:1;
+}
+.bookmark-btn:hover{color:var(--gold)}
+.bookmark-btn.active{color:var(--gold)}
+.bookmark-row{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:10px;padding-top:10px;border-top:1px dashed var(--line-soft);
+  font-size:12px;color:var(--ink-soft);
+}
+
+/* Review (復習) */
+.review-tabs{
+  display:flex;border-bottom:2px solid var(--line);margin-bottom:18px;
+}
+.review-tab{
+  padding:10px 18px;background:none;border:none;cursor:pointer;
+  font-family:var(--font-serif);font-size:14px;font-weight:500;color:var(--ink-faint);
+  border-bottom:2px solid transparent;margin-bottom:-2px;
+  transition:all .15s;letter-spacing:.05em;
+}
+.review-tab:hover{color:var(--ink-soft)}
+.review-tab.active{color:var(--vermillion);border-bottom-color:var(--vermillion)}
+.review-tab .count{
+  font-size:11px;color:var(--ink-faint);margin-left:6px;font-weight:400;
+}
+.review-tab.active .count{color:var(--vermillion-dark)}
+
+.review-q-card{
+  padding:18px 20px;background:#fff;border:1px solid var(--line);
+  margin-bottom:14px;border-left:3px solid var(--gold);
+}
+.review-q-cat{font-size:11px;color:var(--gold);letter-spacing:.15em;text-transform:uppercase;margin-bottom:6px}
+.review-q-subj{font-size:11px;color:var(--ink-faint);margin-bottom:10px}
+.review-q-text{
+  font-family:var(--font-serif);font-size:15px;font-weight:500;line-height:1.85;
+  margin-bottom:14px;color:var(--ink);
+}
+.review-q-choices{
+  display:flex;flex-direction:column;gap:6px;margin-bottom:14px;
+  font-size:13px;
+}
+.review-q-choice{
+  padding:8px 14px;background:var(--paper);border:1px solid var(--line);
+  display:flex;gap:10px;align-items:flex-start;
+}
+.review-q-choice.correct{background:var(--correct-bg);border-color:var(--correct)}
+.review-q-choice .mark{
+  flex:0 0 22px;height:22px;border:1px solid var(--ink-faint);
+  display:flex;align-items:center;justify-content:center;border-radius:50%;
+  font-family:var(--font-serif);font-size:11px;color:var(--ink-soft);
+}
+.review-q-choice.correct .mark{background:var(--correct);color:#fff;border-color:var(--correct)}
+.review-q-explain{
+  padding:12px 14px;background:var(--paper);border:1px solid var(--line);
+  font-size:12px;line-height:1.85;color:var(--ink);
+}
+.review-q-source{font-size:10px;color:var(--ink-faint);margin-top:8px;letter-spacing:.05em}
+.review-q-actions{
+  display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-top:10px;
+}
+.review-q-meta{font-size:11px;color:var(--ink-faint);flex:1}
+
 @media (max-width:600px){
   body{font-size:14px}
   #app{padding:18px 14px 60px}
@@ -498,6 +626,8 @@ details.exam-details summary:hover{color:var(--vermillion-dark)}
   .mock-cell{font-size:11px}
   .mock-history-row{flex-direction:column;align-items:flex-start;gap:6px}
   .mock-history-row .date{min-width:0}
+  .topic-checks{grid-template-columns:1fr;max-height:240px}
+  .review-tab{padding:8px 12px;font-size:13px}
 }
 </style>
 </head>
@@ -515,7 +645,7 @@ details.exam-details summary:hover{color:var(--vermillion-dark)}
    いません。
    ============================================================ */
 
-const APP_VERSION = "0.4.0-phase2c";
+const APP_VERSION = "0.5.0-phase2d";
 const STORAGE_KEY = "kokunai_kanri_data_v1";
 
 /* ---------- 科目定義 ---------- */
@@ -1730,7 +1860,10 @@ const state = {
   mock: null,
   data: loadData(),
   selectedSubject: null,
-  practiceCount: null
+  practiceCount: null,
+  selectedTopics: null,   // 論点フィルタ用：選択中の論点キー集合
+  reviewTab: "bookmark",  // 復習画面タブ："bookmark" | "wrong"
+  masteryFilter: "all"    // 論点画面フィルタ："all" | "weak" | "unattempted" など
 };
 
 function loadData(){
@@ -1741,13 +1874,14 @@ function loadData(){
     if(!obj.history) obj.history = [];
     if(!obj.settings) obj.settings = {};
     if(!obj.mockHistory) obj.mockHistory = [];
+    if(!obj.bookmarks) obj.bookmarks = [];
     return obj;
   }catch(e){
     console.warn("data load failed", e);
     return defaultData();
   }
 }
-function defaultData(){ return {version:APP_VERSION, history:[], settings:{}, mockHistory:[]}; }
+function defaultData(){ return {version:APP_VERSION, history:[], settings:{}, mockHistory:[], bookmarks:[]}; }
 function saveData(){
   try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(state.data)); }
   catch(e){ console.warn("save failed", e); }
@@ -1861,6 +1995,45 @@ function masteryLevel(pct, attempts){
   return                   {level:5, label:"完全",   color:"var(--correct)"};
 }
 
+/* ---------- ブックマーク ---------- */
+function isBookmarked(qid){
+  return (state.data.bookmarks || []).includes(qid);
+}
+function toggleBookmark(qid){
+  if(!state.data.bookmarks) state.data.bookmarks = [];
+  const idx = state.data.bookmarks.indexOf(qid);
+  if(idx >= 0){
+    state.data.bookmarks.splice(idx, 1);
+    toast("ブックマークを解除しました");
+  } else {
+    state.data.bookmarks.push(qid);
+    toast("ブックマークしました");
+  }
+  saveData();
+}
+function getBookmarkedQuestions(){
+  return (state.data.bookmarks || [])
+    .map(qid => QUESTIONS.find(q => q.id === qid))
+    .filter(q => q != null);
+}
+
+/* ---------- 誤答ノート ----------
+   直近の解答が誤答だった問題を抽出。同じ問題を再演習して正答した場合は除外する。 */
+function getWrongQuestions(){
+  const lastByQid = {};
+  // 各問題の最新の解答記録を取得
+  state.data.history.forEach(h=>{
+    if(!lastByQid[h.qid] || lastByQid[h.qid].ts < h.ts){
+      lastByQid[h.qid] = h;
+    }
+  });
+  return Object.values(lastByQid)
+    .filter(h => !h.correct)
+    .sort((a,b) => b.ts - a.ts)
+    .map(h => QUESTIONS.find(q => q.id === h.qid))
+    .filter(q => q != null);
+}
+
 /* ---------- ナビゲーション ---------- */
 function nav(screen, opts){
   // 模試実施中の離脱警告
@@ -1887,6 +2060,7 @@ function headerEl(){
       nav_a("ホーム", "home"),
       nav_a("演習", "subject-select"),
       nav_a("模試", "mock-intro"),
+      nav_a("復習", "review"),
       nav_a("論点", "mastery"),
       nav_a("履歴", "history"),
       nav_a("設定", "settings"),
@@ -1980,6 +2154,34 @@ function renderHome(){
     hintCard.appendChild(el("div", {class:"empty"},
       "各論点で2回以上演習すると、苦手論点が表示されます。同じ問題を繰り返し解いて、論点別の習熟度を測定します。"));
     root.appendChild(hintCard);
+  }
+
+  // 復習セクション（ブックマークまたは誤答問題がある場合のみ）
+  const bookmarkCount = (state.data.bookmarks || []).length;
+  const wrongCount = getWrongQuestions().length;
+  if(bookmarkCount > 0 || wrongCount > 0){
+    const reviewCard = el("div", {class:"card"});
+    reviewCard.appendChild(el("div", {class:"card-head"}, "復習"));
+    reviewCard.appendChild(el("div", {style:"font-size:13px;color:var(--ink-soft);line-height:1.8;margin-bottom:10px"},
+      "ブックマークした問題や誤答した問題を集中的に復習できます。"));
+    const reviewStats = el("div", {style:"display:flex;gap:14px;font-size:12px;margin-bottom:14px"});
+    if(bookmarkCount > 0){
+      reviewStats.appendChild(el("div", null, [
+        el("span", {style:"color:var(--gold);font-family:var(--font-serif);font-weight:700;font-size:16px;margin-right:4px"}, "★"),
+        document.createTextNode(`ブックマーク ${bookmarkCount}問`)
+      ]));
+    }
+    if(wrongCount > 0){
+      reviewStats.appendChild(el("div", null, [
+        el("span", {style:"color:var(--vermillion);font-family:var(--font-serif);font-weight:700;font-size:14px;margin-right:4px"}, "✗"),
+        document.createTextNode(`誤答ノート ${wrongCount}問`)
+      ]));
+    }
+    reviewCard.appendChild(reviewStats);
+    reviewCard.appendChild(el("div", {class:"btn-row"}, [
+      el("button", {class:"btn", onclick:()=>nav("review")}, "復習を開く"),
+    ]));
+    root.appendChild(reviewCard);
   }
 
   // 模試履歴セクション
@@ -2132,7 +2334,11 @@ function renderSubjectSelect(){
   SUBJECTS.forEach(s=>{
     const total = QUESTIONS.filter(q=>q.subject===s.id).length;
     const ss = subjStats[s.id];
-    const c = el("button", {class:"subj-card", onclick:()=>nav("practice-setup", {selectedSubject:s.id})}, [
+    const c = el("button", {class:"subj-card", onclick:()=>{
+      state.selectedTopics = null;
+      state.practiceCount = null;
+      nav("practice-setup", {selectedSubject:s.id});
+    }}, [
       el("div", {class:"num"}, `SUBJECT ${s.no}`),
       el("div", {class:"name"}, s.name),
       el("div", {class:"desc"}, s.desc),
@@ -2145,7 +2351,11 @@ function renderSubjectSelect(){
   const allTotal = QUESTIONS.length;
   const allSt = state.data.history.length;
   const allCorrect = state.data.history.filter(h=>h.correct).length;
-  const cAll = el("button", {class:"subj-card", style:"border-color:var(--gold);background:linear-gradient(135deg, var(--paper), #fff6e0)", onclick:()=>nav("practice-setup", {selectedSubject:"all"})}, [
+  const cAll = el("button", {class:"subj-card", style:"border-color:var(--gold);background:linear-gradient(135deg, var(--paper), #fff6e0)", onclick:()=>{
+    state.selectedTopics = null;
+    state.practiceCount = null;
+    nav("practice-setup", {selectedSubject:"all"});
+  }}, [
     el("div", {class:"num", style:"color:var(--vermillion)"}, "MIXED"),
     el("div", {class:"name"}, "全分野ランダム"),
     el("div", {class:"desc"}, "全科目からランダムに出題"),
@@ -2181,20 +2391,104 @@ function renderPracticeSetup(){
   card.appendChild(el("div", {style:"font-size:12px;color:var(--ink-faint);margin-top:8px"},
     `収録問題数: ${maxQ} 問`));
 
-  card.appendChild(el("div", {style:"font-size:12px;letter-spacing:.15em;color:var(--ink-faint);margin-top:16px;text-transform:uppercase"}, "出題数"));
+  // 論点絞り込みセクション（subjectId !== "all" のときのみ）
+  if(subjectId !== "all"){
+    card.appendChild(el("div", {style:"font-size:12px;letter-spacing:.15em;color:var(--ink-faint);margin-top:18px;text-transform:uppercase"}, "論点の絞り込み"));
 
-  const countRow = el("div", {class:"count-row"});
-  presets.forEach(n=>{
-    const chip = el("button", {
-      class:"count-chip" + (n===state.practiceCount?" active":""),
-      onclick:()=>{ state.practiceCount = n; nav("practice-setup"); }
-    }, `${n} 問${n===maxQ?"（全問）":""}`);
-    countRow.appendChild(chip);
-  });
-  card.appendChild(countRow);
+    // 全論点を取得
+    const allCats = [...new Set(pool.map(q=>q.category))].sort();
+    if(!state.selectedTopics) state.selectedTopics = new Set();
+
+    // この科目用に有効な論点のみ
+    const validCats = new Set(allCats);
+    const checkedNow = Array.from(state.selectedTopics).filter(c => validCats.has(c));
+
+    const selector = el("div", {class:"topic-selector"});
+    const selHead = el("div", {class:"topic-selector-head"}, [
+      el("span", null, [
+        document.createTextNode("選択中: "),
+        el("span", {class:"count"}, `${checkedNow.length}`),
+        document.createTextNode(` / ${allCats.length} 論点`)
+      ]),
+      el("div", {class:"topic-selector-actions"}, [
+        el("a", {onclick:()=>{
+          state.selectedTopics = new Set(allCats);
+          render();
+        }}, "全選択"),
+        el("a", {onclick:()=>{
+          state.selectedTopics = new Set();
+          render();
+        }}, "全解除"),
+      ])
+    ]);
+    selector.appendChild(selHead);
+
+    const checks = el("div", {class:"topic-checks"});
+    const subjStat = statsByCategory();
+    const statMap = {};
+    subjStat.forEach(s=>{ statMap[`${s.subject}::${s.category}`] = s; });
+
+    allCats.forEach(catName=>{
+      const checked = state.selectedTopics.has(catName);
+      const stKey = `${subjectId}::${catName}`;
+      const st = statMap[stKey];
+      const pct = st ? st.pct : null;
+      const ml = st ? masteryLevel(st.pct, st.attempts) : {color:"var(--ink-faint)"};
+
+      const label = el("label", {class:"topic-check" + (checked?" checked":"")}, [
+        el("input", {
+          type:"checkbox",
+          checked: checked ? "" : null,
+          onchange:(e)=>{
+            if(e.target.checked) state.selectedTopics.add(catName);
+            else state.selectedTopics.delete(catName);
+            render();
+          }
+        }),
+        el("span", {class:"name"}, catName),
+        el("span", {class:"pct", style:`color:${ml.color}`}, st ? `${pct}%` : "-")
+      ]);
+      checks.appendChild(label);
+    });
+    selector.appendChild(checks);
+    card.appendChild(selector);
+  }
+
+  // 出題数選択
+  // 有効な問題プールサイズを再計算
+  let effectiveMax = maxQ;
+  let effectivePool = pool;
+  if(subjectId !== "all" && state.selectedTopics && state.selectedTopics.size > 0){
+    effectivePool = pool.filter(q => state.selectedTopics.has(q.category));
+    effectiveMax = effectivePool.length;
+  }
+  const effPresets = [5, 10, 20, 30, effectiveMax].filter((n,i,a)=>n<=effectiveMax && n>0 && a.indexOf(n)===i);
+  state.practiceCount = state.practiceCount && effPresets.includes(state.practiceCount) ? state.practiceCount : (effPresets[0] || 0);
+
+  card.appendChild(el("div", {style:"font-size:12px;letter-spacing:.15em;color:var(--ink-faint);margin-top:18px;text-transform:uppercase"},
+    `出題数（対象: ${effectiveMax}問）`));
+
+  if(effectiveMax === 0){
+    card.appendChild(el("div", {style:"font-size:13px;color:var(--vermillion);margin-top:8px"},
+      "選択された論点に該当する問題がありません。論点を選び直してください。"));
+  } else {
+    const countRow = el("div", {class:"count-row"});
+    effPresets.forEach(n=>{
+      const chip = el("button", {
+        class:"count-chip" + (n===state.practiceCount?" active":""),
+        onclick:()=>{ state.practiceCount = n; render(); }
+      }, `${n} 問${n===effectiveMax?"（全問）":""}`);
+      countRow.appendChild(chip);
+    });
+    card.appendChild(countRow);
+  }
 
   card.appendChild(el("div", {class:"btn-row", style:"margin-top:24px"}, [
-    el("button", {class:"btn btn-primary", onclick:()=>startPractice(subjectId, state.practiceCount)}, "演習を開始"),
+    el("button", {
+      class:"btn btn-primary",
+      disabled: effectiveMax === 0 ? "" : null,
+      onclick:()=>startPractice(subjectId, state.practiceCount)
+    }, "演習を開始"),
     el("button", {class:"btn btn-ghost", onclick:()=>nav("subject-select")}, "戻る"),
   ]));
 
@@ -2203,11 +2497,20 @@ function renderPracticeSetup(){
 }
 
 function startPractice(subjectId, count){
-  const pool = subjectId === "all" ? QUESTIONS : QUESTIONS.filter(q=>q.subject===subjectId);
-  const queue = shuffle(pool).slice(0, count).map(q=>q.id);
+  let pool = subjectId === "all" ? QUESTIONS : QUESTIONS.filter(q=>q.subject===subjectId);
+  // 論点フィルタが有効ならさらに絞り込む
+  if(subjectId !== "all" && state.selectedTopics && state.selectedTopics.size > 0){
+    pool = pool.filter(q => state.selectedTopics.has(q.category));
+  }
+  if(pool.length === 0){
+    toast("該当する問題がありません");
+    return;
+  }
+  const actualCount = Math.min(count, pool.length);
+  const queue = shuffle(pool).slice(0, actualCount).map(q=>q.id);
   state.practice = {
     subject: subjectId,
-    qCount: count,
+    qCount: actualCount,
     queue, idx: 0,
     answers: [],
     startTime: Date.now(),
@@ -2290,13 +2593,22 @@ function renderPractice(){
   // 解説
   if(p.locked){
     const isCorrect = p.selected === q.answer;
+    const bookmarked = isBookmarked(q.id);
     const exp = el("div", {class:"explain"}, [
       el("div", {class:"explain-head"}, [
         el("span", {class:"judge-badge " + (isCorrect?"ok":"ng")}, isCorrect?"正解":"不正解"),
         el("span", null, "解説")
       ]),
       el("div", {class:"explain-body"}, q.explanation),
-      el("div", {class:"explain-source"}, q.source)
+      el("div", {class:"explain-source"}, q.source),
+      el("div", {class:"bookmark-row"}, [
+        el("span", null, "重要な問題はブックマークして、復習画面でいつでも見直せます"),
+        el("button", {
+          class:"bookmark-btn" + (bookmarked?" active":""),
+          title: bookmarked ? "ブックマーク解除" : "ブックマークに追加",
+          onclick:()=>{ toggleBookmark(q.id); render(); }
+        }, bookmarked ? "★" : "☆")
+      ])
     ]);
     card.appendChild(exp);
 
@@ -2359,6 +2671,8 @@ function renderResult(){
 
   const subjName = p.subject === "all" ? "全分野ランダム"
                  : p.subject === "weak" ? "苦手論点演習"
+                 : p.subject === "bookmark" ? "ブックマーク演習"
+                 : p.subject === "wrong" ? "誤答ノート演習"
                  : SUBJECT_BY_ID[p.subject].name;
 
   // スコアカード
@@ -2456,8 +2770,8 @@ function renderSettings(){
   ]));
 
   card.appendChild(el("div", {class:"note"}, [
-    el("strong", null, "Phase 2-C メモ: "),
-    document.createTextNode("模試モード（本試験形式・3科目各20問・60分制限・科目別合否判定）を追加しました。論点別フィルタ・ブックマークなどは Phase 2-D 以降で順次追加します。")
+    el("strong", null, "Phase 2-D メモ: "),
+    document.createTextNode("論点別フィルタ（論点ごとの絞り込み演習）とブックマーク・誤答ノート機能を追加し、Phase 2 が完了しました。今後はユーザーのフィードバックに基づき、問題数の拡充や機能改善を順次行う予定です。")
   ]));
 
   root.appendChild(card);
@@ -2512,6 +2826,122 @@ function resetData(){
 }
 
 /* ---------- 画面: 論点別 習熟度マップ ---------- */
+/* ---------- 画面: 復習（ブックマーク・誤答ノート） ---------- */
+function renderReview(){
+  const root = el("div", {class:"screen"});
+  root.appendChild(headerEl());
+
+  const card = el("div", {class:"card"});
+  card.appendChild(el("div", {class:"card-head"}, "復習"));
+  card.appendChild(el("div", {style:"font-size:13px;color:var(--ink-soft);line-height:1.8;margin-bottom:12px"},
+    "ブックマークした問題と、直近の解答が誤答だった問題を確認できます。"));
+
+  const bookmarks = getBookmarkedQuestions();
+  const wrongQs = getWrongQuestions();
+
+  // タブ
+  const tabs = el("div", {class:"review-tabs"});
+  tabs.appendChild(el("button", {
+    class:"review-tab" + (state.reviewTab==="bookmark"?" active":""),
+    onclick:()=>{ state.reviewTab="bookmark"; render(); }
+  }, [
+    document.createTextNode("ブックマーク"),
+    el("span", {class:"count"}, `(${bookmarks.length})`)
+  ]));
+  tabs.appendChild(el("button", {
+    class:"review-tab" + (state.reviewTab==="wrong"?" active":""),
+    onclick:()=>{ state.reviewTab="wrong"; render(); }
+  }, [
+    document.createTextNode("誤答ノート"),
+    el("span", {class:"count"}, `(${wrongQs.length})`)
+  ]));
+  card.appendChild(tabs);
+
+  // 演習開始ボタン
+  const targetQs = state.reviewTab === "bookmark" ? bookmarks : wrongQs;
+  if(targetQs.length > 0){
+    card.appendChild(el("div", {class:"btn-row", style:"margin-bottom:18px"}, [
+      el("button", {
+        class:"btn btn-primary",
+        onclick:()=>startReviewPractice(state.reviewTab)
+      }, `この${state.reviewTab==="bookmark"?"ブックマーク":"誤答問題"}で演習する`),
+    ]));
+  }
+
+  // タブ内容
+  if(targetQs.length === 0){
+    card.appendChild(el("div", {class:"empty"},
+      state.reviewTab === "bookmark"
+        ? "まだブックマークがありません。演習中に解説下部の ☆ ボタンを押すと、ブックマークに追加できます。"
+        : "誤答した問題はありません。"));
+  } else {
+    targetQs.forEach((q, idx)=>{
+      const subj = SUBJECT_BY_ID[q.subject];
+      const marks = ["ア","イ","ウ","エ","オ"];
+      const bookmarked = isBookmarked(q.id);
+      const reviewQ = el("div", {class:"review-q-card"});
+      reviewQ.appendChild(el("div", {class:"review-q-cat"},
+        `${state.reviewTab==="bookmark"?"ブックマーク":"誤答ノート"} #${idx+1}  -  ${q.category}`));
+      reviewQ.appendChild(el("div", {class:"review-q-subj"},
+        `${subj.no}. ${subj.name}`));
+      reviewQ.appendChild(el("div", {class:"review-q-text"}, q.question));
+
+      const choicesEl = el("div", {class:"review-q-choices"});
+      q.choices.forEach((c, i)=>{
+        choicesEl.appendChild(el("div", {class:"review-q-choice" + (i===q.answer?" correct":"")}, [
+          el("div", {class:"mark"}, marks[i]),
+          el("div", null, c)
+        ]));
+      });
+      reviewQ.appendChild(choicesEl);
+
+      const explainEl = el("div", {class:"review-q-explain"}, [
+        el("strong", {style:"font-family:var(--font-serif);color:var(--vermillion-dark);font-weight:700"}, "解説 "),
+        document.createTextNode(q.explanation),
+        el("div", {class:"review-q-source"}, `出典: ${q.source}`)
+      ]);
+      reviewQ.appendChild(explainEl);
+
+      // アクション行（ブックマーク解除ボタン等）
+      reviewQ.appendChild(el("div", {class:"review-q-actions"}, [
+        el("div", {class:"review-q-meta"},
+          state.reviewTab === "wrong" ? "最新の解答が誤答だった問題です" : ""),
+        el("button", {
+          class:"bookmark-btn" + (bookmarked?" active":""),
+          title: bookmarked ? "ブックマーク解除" : "ブックマークに追加",
+          onclick:()=>{ toggleBookmark(q.id); render(); }
+        }, bookmarked ? "★" : "☆")
+      ]));
+
+      card.appendChild(reviewQ);
+    });
+  }
+
+  root.appendChild(card);
+  return root;
+}
+
+/* 復習演習：ブックマーク or 誤答問題で演習 */
+function startReviewPractice(tab){
+  const qs = tab === "bookmark" ? getBookmarkedQuestions() : getWrongQuestions();
+  if(qs.length === 0){
+    toast("対象問題がありません");
+    return;
+  }
+  const count = Math.min(20, qs.length);
+  const queue = shuffle(qs).slice(0, count).map(q => q.id);
+  state.practice = {
+    subject: tab === "bookmark" ? "bookmark" : "wrong",
+    qCount: count,
+    queue, idx: 0,
+    answers: [],
+    startTime: Date.now(),
+    selected: null,
+    locked: false
+  };
+  nav("practice");
+}
+
 function renderMastery(){
   const root = el("div", {class:"screen"});
   root.appendChild(headerEl());
@@ -2519,7 +2949,7 @@ function renderMastery(){
   const card = el("div", {class:"card"});
   card.appendChild(el("div", {class:"card-head"}, "論点別 習熟度マップ"));
   card.appendChild(el("div", {style:"font-size:13px;color:var(--ink-soft);line-height:1.8"},
-    "演習履歴に基づき、論点ごとの正答率と習熟度を表示します。色は習熟度を示します。"));
+    "演習履歴に基づき、論点ごとの正答率と習熟度を表示します。論点をクリックすると、その論点だけで演習できます。"));
 
   // 凡例
   const legend = el("div", {class:"mastery-legend"}, [
@@ -2531,6 +2961,23 @@ function renderMastery(){
     el("div", {class:"item"}, [el("span", {class:"dot", style:"background:var(--correct)"}), document.createTextNode("完全（100%）")]),
   ]);
   card.appendChild(legend);
+
+  // 絞り込みフィルタ
+  const filterRow = el("div", {class:"filter-row"});
+  filterRow.appendChild(el("span", {class:"filter-label"}, "絞り込み:"));
+  const filters = [
+    {id:"all",         label:"すべて"},
+    {id:"unattempted", label:"未演習"},
+    {id:"weak",        label:"要強化・弱"},
+    {id:"strong",      label:"良・完全"},
+  ];
+  filters.forEach(f=>{
+    filterRow.appendChild(el("button", {
+      class:"filter-chip" + (state.masteryFilter===f.id?" active":""),
+      onclick:()=>{ state.masteryFilter = f.id; render(); }
+    }, f.label));
+  });
+  card.appendChild(filterRow);
 
   // 全カテゴリを科目別に整理
   const allCats = {};
@@ -2548,20 +2995,43 @@ function renderMastery(){
   const statMap = {};
   stats.forEach(s => { statMap[`${s.subject}::${s.category}`] = s; });
 
+  // フィルタ判定関数
+  const matchFilter = (attempts, pct) => {
+    if(state.masteryFilter === "all") return true;
+    if(state.masteryFilter === "unattempted") return attempts < 2;
+    if(state.masteryFilter === "weak")        return attempts >= 2 && pct < 60;
+    if(state.masteryFilter === "strong")      return attempts >= 2 && pct >= 80;
+    return true;
+  };
+
   // 科目別に表示
+  let displayedAny = false;
   SUBJECTS.forEach(s=>{
-    const section = el("div", {class:"mastery-section"});
-    section.appendChild(el("div", {class:"mastery-section-head"}, `${s.no}. ${s.name}`));
-    const grid = el("div", {class:"mastery-grid"});
     const cats = Array.from(allCats[s.id].keys()).sort();
-    cats.forEach(catName=>{
+    const filteredCats = cats.filter(catName=>{
+      const st = statMap[`${s.id}::${catName}`];
+      return matchFilter(st ? st.attempts : 0, st ? st.pct : 0);
+    });
+    if(filteredCats.length === 0) return;
+    displayedAny = true;
+
+    const section = el("div", {class:"mastery-section"});
+    section.appendChild(el("div", {class:"mastery-section-head"},
+      `${s.no}. ${s.name} （${filteredCats.length}論点）`));
+    const grid = el("div", {class:"mastery-grid"});
+    filteredCats.forEach(catName=>{
       const key = `${s.id}::${catName}`;
       const st = statMap[key];
       const attempts = st ? st.attempts : 0;
       const pct = st ? st.pct : 0;
       const correct = st ? st.correct : 0;
       const ml = masteryLevel(pct, attempts);
-      const cell = el("div", {class:"mastery-cell", style:`border-left-color:${ml.color}`}, [
+      const cell = el("div", {
+        class:"mastery-cell",
+        style:`border-left-color:${ml.color}`,
+        title: "クリックでこの論点だけ演習",
+        onclick:()=>startCategoryPractice(s.id, catName)
+      }, [
         el("div", {class:"name"}, [
           document.createTextNode(catName),
           el("div", {class:"meta"}, attempts>0 ? `${correct}/${attempts}回 / ${ml.label}` : `未演習`)
@@ -2574,6 +3044,10 @@ function renderMastery(){
     card.appendChild(section);
   });
 
+  if(!displayedAny){
+    card.appendChild(el("div", {class:"empty"}, "該当する論点がありません。"));
+  }
+
   card.appendChild(el("div", {class:"btn-row", style:"margin-top:18px"}, [
     el("button", {class:"btn btn-primary", onclick:()=>startWeakPractice()}, "苦手論点で演習する"),
     el("button", {class:"btn btn-ghost", onclick:()=>nav("home")}, "ホームに戻る"),
@@ -2581,6 +3055,28 @@ function renderMastery(){
 
   root.appendChild(card);
   return root;
+}
+
+/* 指定論点だけで演習を開始 */
+function startCategoryPractice(subjectId, category){
+  const pool = QUESTIONS.filter(q => q.subject === subjectId && q.category === category);
+  if(pool.length === 0){
+    toast("該当問題がありません");
+    return;
+  }
+  const count = pool.length;
+  const queue = shuffle(pool).map(q => q.id);
+  state.practice = {
+    subject: subjectId,
+    qCount: count,
+    queue, idx: 0,
+    answers: [],
+    startTime: Date.now(),
+    selected: null,
+    locked: false,
+    categoryFilter: category
+  };
+  nav("practice");
 }
 
 /* ============================================================
@@ -3033,6 +3529,7 @@ function render(){
     case "mock-intro": view = renderMockIntro(); break;
     case "mock": view = renderMock(); break;
     case "mock-result": view = renderMockResult(); break;
+    case "review": view = renderReview(); break;
     case "mastery": view = renderMastery(); break;
     case "history": view = renderHistory(); break;
     case "settings": view = renderSettings(); break;
