@@ -645,7 +645,7 @@ details.exam-details summary:hover{color:var(--vermillion-dark)}
    いません。
    ============================================================ */
 
-const APP_VERSION = "0.6.0-phase3";
+const APP_VERSION = "0.6.1-phase3";
 const STORAGE_KEY = "kokunai_kanri_data_v1";
 
 /* ---------- 科目定義 ---------- */
@@ -1190,7 +1190,7 @@ const QUESTIONS = [
      III. 国内旅行実務（20問）
      ============================================================ */
   {
-    id:"dom_001", subject:"domestic", category:"貸切バス 時間制運賃",
+    id:"dom_001", subject:"domestic", category:"貸切バス 計算",
     question:"一般貸切旅客自動車運送事業の運賃のうち、時間制運賃の計算対象時間に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "旅客が実際に乗車している時間のみが時間制運賃の対象となる",
@@ -1216,7 +1216,7 @@ const QUESTIONS = [
     source:"一般貸切旅客自動車運送事業標準運送約款"
   },
   {
-    id:"dom_003", subject:"domestic", category:"フェリー 小児運賃",
+    id:"dom_003", subject:"domestic", category:"フェリー 旅客運賃計算",
     question:"フェリーの旅客運賃に関する次の記述のうち、正しいものはどれか（標準運送約款によるものとする）。",
     choices:[
       "小児とは、6歳以上15歳未満の者をいい、その運賃は大人運賃の半額である",
@@ -1229,7 +1229,7 @@ const QUESTIONS = [
     source:"海上運送法第9条第3項の規定に基づく標準運送約款"
   },
   {
-    id:"dom_004", subject:"domestic", category:"モデル宿泊約款 違約金",
+    id:"dom_004", subject:"domestic", category:"モデル宿泊約款 料金計算",
     question:"モデル宿泊約款における違約金の算定基礎に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "違約金は、基本宿泊料にサービス料及び消費税を加えた合計額を基礎として算定する",
@@ -1242,7 +1242,7 @@ const QUESTIONS = [
     source:"モデル宿泊約款"
   },
   {
-    id:"dom_005", subject:"domestic", category:"モデル宿泊約款 申込金",
+    id:"dom_005", subject:"domestic", category:"モデル宿泊約款 料金計算",
     question:"モデル宿泊約款における宿泊契約成立時の申込金の限度額に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "宿泊期間にかかわらず、1泊分の基本宿泊料を限度とする",
@@ -1255,7 +1255,7 @@ const QUESTIONS = [
     source:"モデル宿泊約款"
   },
   {
-    id:"dom_006", subject:"domestic", category:"宿泊税・入湯税",
+    id:"dom_006", subject:"domestic", category:"モデル宿泊約款 料金計算",
     question:"宿泊に関する税の取扱いに関する次の記述のうち、正しいものはどれか。",
     choices:[
       "入湯税は、年齢にかかわらず、温泉地の宿泊施設に宿泊する全ての宿泊客に対して課税される",
@@ -1268,7 +1268,7 @@ const QUESTIONS = [
     source:"地方税法、各自治体公表情報"
   },
   {
-    id:"dom_007", subject:"domestic", category:"JR 分岐駅特例",
+    id:"dom_007", subject:"domestic", category:"JR 乗車券特例",
     question:"JR線における分岐駅を通過する列車に乗車する場合の特例（分岐駅を通過する列車に乗車する場合の特例）に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "分岐駅で改札を出ない限り、特例の対象区間を運賃計算上は2度算入する",
@@ -1281,7 +1281,7 @@ const QUESTIONS = [
     source:"JR旅客営業規則"
   },
   {
-    id:"dom_008", subject:"domestic", category:"JR 新幹線特急料金通算",
+    id:"dom_008", subject:"domestic", category:"JR 新幹線特急料金",
     question:"JR新幹線の特急料金通算に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "新幹線同士の乗継において、乗継駅の改札を出ない場合は、特急料金を通算する",
@@ -1294,7 +1294,7 @@ const QUESTIONS = [
     source:"JR旅客営業規則"
   },
   {
-    id:"dom_009", subject:"domestic", category:"JR 訪日観光団体",
+    id:"dom_009", subject:"domestic", category:"JR 団体運賃料金",
     question:"JRの団体乗車券の発売における訪日観光団体の無賃扱人員に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "訪日観光団体が31人以上50人までのときは、5人を無賃扱人員として取り扱う",
@@ -1398,7 +1398,7 @@ const QUESTIONS = [
     source:"香川県観光協会公表情報"
   },
   {
-    id:"dom_017", subject:"domestic", category:"地理 九州",
+    id:"dom_017", subject:"domestic", category:"地理 九州沖縄",
     question:"熊本市内と高千穂峡を結ぶ観光ルート上にあるアーチ型の石づくりの水道橋で、橋の中央部から放水される様でも有名であり、2023年に国宝に指定された橋として、正しいものはどれか。",
     choices:[
       "渡月橋",
@@ -1532,7 +1532,7 @@ const QUESTIONS = [
     source:"旅行業法 第41条、第42条"
   },
   {
-    id:"law_027", subject:"law", category:"法第1条 目的 別パターン",
+    id:"law_027", subject:"law", category:"法第1条 目的",
     question:"旅行業法第1条「目的」に関する次の記述のうち、同条に定められている事項として正しいものはどれか。",
     choices:[
       "旅行業者の経営の効率化",
@@ -1545,7 +1545,7 @@ const QUESTIONS = [
     source:"旅行業法 第1条"
   },
   {
-    id:"law_028", subject:"law", category:"法第4条 登録業務範囲 別パターン",
+    id:"law_028", subject:"law", category:"法第4条 登録業務範囲",
     question:"旅行業の登録業務範囲に関する次の記述のうち、正しいものはどれか（取扱管理者の選任要件は満たされているものとする）。",
     choices:[
       "第3種旅行業者は、本邦内の旅行であれば、拠点区域に関係なく募集型企画旅行を実施することができる",
@@ -1558,7 +1558,7 @@ const QUESTIONS = [
     source:"旅行業法 第4条、同施行規則"
   },
   {
-    id:"law_029", subject:"law", category:"法第7条 営業保証金 別パターン",
+    id:"law_029", subject:"law", category:"法第7条 営業保証金",
     question:"営業保証金の追加供託に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "旅行業者は、毎事業年度終了後において、その供託している営業保証金の額が所定の額に不足することとなるときは、その不足額を毎事業年度終了の日の翌日から起算して100日以内に追加して供託しなければならない",
@@ -1571,7 +1571,7 @@ const QUESTIONS = [
     source:"旅行業法 第7条、同施行規則"
   },
   {
-    id:"law_030", subject:"law", category:"法第2条 登録要否 別業態",
+    id:"law_030", subject:"law", category:"法第2条 登録要否",
     question:"報酬を得て事業として行う場合、旅行業の登録を要しないものはどれか。",
     choices:[
       "観光案内所が、旅行者からの依頼に基づき、他人の経営する貸切バスを手配する行為",
@@ -1614,7 +1614,7 @@ const QUESTIONS = [
     source:"標準旅行業約款 募集型企画旅行契約の部 第13条〜第15条"
   },
   {
-    id:"ykk_023", subject:"yakkan", category:"募集型 旅程保証 別パターン",
+    id:"ykk_023", subject:"yakkan", category:"募集型 旅程保証",
     question:"標準旅行業約款（募集型企画旅行契約の部）における旅程保証に関し、次の場合のうち、変更補償金の支払を要するものはどれか（いずれも変更補償金を支払う場合に、その額は約款が定める支払いが必要な最低額を上回っているものとする）。",
     choices:[
       "旅行参加者の生命又は身体の安全確保のために必要な措置を講じたため、確定書面に明示した展望台に行けない旨を旅行者に通知したとき",
@@ -1627,7 +1627,7 @@ const QUESTIONS = [
     source:"標準旅行業約款 募集型企画旅行契約の部 第29条 別表第二"
   },
   {
-    id:"ykk_024", subject:"yakkan", category:"特別補償 携帯品損害 別パターン",
+    id:"ykk_024", subject:"yakkan", category:"特別補償 携帯品損害補償",
     question:"標準旅行業約款（特別補償規程）における携帯品損害補償金の支払の対象となるものはどれか（携帯品損害補償金を支払う場合は、約款に定める支払いが必要な最低額を上回っているものとする）。",
     choices:[
       "旅行先のホテルのレストランで食事中に床に落として破損した、旅行者所有のスマートフォン",
@@ -1640,7 +1640,7 @@ const QUESTIONS = [
     source:"標準旅行業約款 特別補償規程"
   },
   {
-    id:"ykk_025", subject:"yakkan", category:"特別補償 入院・通院見舞金",
+    id:"ykk_025", subject:"yakkan", category:"特別補償 入院・通院・死亡見舞金",
     question:"標準旅行業約款（特別補償規程）における入院見舞金及び通院見舞金に関する次の記述のうち、誤っているものはどれか。",
     choices:[
       "旅行業者は、いかなる場合においても、事故の日から180日を経過した後の通院に対しては、特別補償規程に定める通院見舞金を支払わない",
@@ -1653,7 +1653,7 @@ const QUESTIONS = [
     source:"標準旅行業約款 特別補償規程"
   },
   {
-    id:"ykk_026", subject:"yakkan", category:"一般貸切バス 別論点",
+    id:"ykk_026", subject:"yakkan", category:"一般貸切バス標準運送約款",
     question:"一般貸切旅客自動車運送事業標準運送約款に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "バス会社は、旅客の運送を申し込もうとする者が運送申込書を提出する際に、旅客の名簿を必ず提出するよう求めなければならない",
@@ -1666,7 +1666,7 @@ const QUESTIONS = [
     source:"一般貸切旅客自動車運送事業標準運送約款"
   },
   {
-    id:"ykk_027", subject:"yakkan", category:"JR普通団体・無賃扱",
+    id:"ykk_027", subject:"yakkan", category:"JR 団体運賃料金",
     question:"JR旅客営業規則における普通団体の無賃扱に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "普通団体は、団体旅客が15人以上で構成されるものをいい、31人以上50人までは1人、51人以上は50人までごとに1人を加えた人員を無賃扱とする",
@@ -1679,7 +1679,7 @@ const QUESTIONS = [
     source:"JR旅客営業規則"
   },
   {
-    id:"ykk_028", subject:"yakkan", category:"モデル宿泊約款 駐車場・連絡なし不到着",
+    id:"ykk_028", subject:"yakkan", category:"モデル宿泊約款",
     question:"モデル宿泊約款に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "ホテル（旅館）は、宿泊客が連絡をしないで宿泊日当日の所定の時刻、又はあらかじめ明示された到着予定時刻を一定時間経過しても到着しないときは、その宿泊契約は当該宿泊客により解除されたものとみなして処理することがある",
@@ -1722,7 +1722,7 @@ const QUESTIONS = [
      III. 国内旅行実務（追加10問・問21〜30）
      ============================================================ */
   {
-    id:"dom_021", subject:"domestic", category:"貸切バス 違約料 別パターン",
+    id:"dom_021", subject:"domestic", category:"貸切バス 違約料",
     question:"貸切バスの契約責任者の都合による配車車両数の減少を伴う運送契約の内容の変更に関する違約料について、次の記述のうち正しいものはどれか（消費税の計算は行わないものとする）。",
     choices:[
       "配車日時の20日前以前に配車車両数の減少を伴う変更を行ったときは、所定の運賃及び料金の合計額の20%相当額を違約料として収受する",
@@ -1735,7 +1735,7 @@ const QUESTIONS = [
     source:"一般貸切旅客自動車運送事業標準運送約款"
   },
   {
-    id:"dom_022", subject:"domestic", category:"フェリー 自動車航送 運転者扱い",
+    id:"dom_022", subject:"domestic", category:"フェリー 自動車航送",
     question:"フェリーの自動車航送に関する次の記述のうち、正しいものはどれか（標準運送約款によるものとする）。",
     choices:[
       "自動車航送運賃には、当該自動車1台につき2等船室の旅客運賃1人分が含まれており、運転者がこの2等船室を使用するときは別途旅客運賃を申し受けない",
@@ -1748,7 +1748,7 @@ const QUESTIONS = [
     source:"海上運送法第9条第3項の規定に基づく標準運送約款"
   },
   {
-    id:"dom_023", subject:"domestic", category:"JR 普通団体 無賃扱人員",
+    id:"dom_023", subject:"domestic", category:"JR 団体運賃料金",
     question:"JR旅客営業規則における普通団体の無賃扱人員の算定に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "普通団体は団体旅客が15人以上で構成され、31人以上50人までは1人、51人以上は50人までごとに1人を加えた人員を無賃扱とする",
@@ -1800,7 +1800,7 @@ const QUESTIONS = [
     source:"環境省 国立公園公表情報、文化庁 国指定文化財等データベース"
   },
   {
-    id:"dom_027", subject:"domestic", category:"地理 沖縄",
+    id:"dom_027", subject:"domestic", category:"地理 九州沖縄",
     question:"沖縄本島北部の本部半島の沖合に位置し、橋で本島と結ばれており、フクギ並木とエメラルドビーチに近い島として、正しいものはどれか。",
     choices:[
       "石垣島",
@@ -1839,7 +1839,7 @@ const QUESTIONS = [
     source:"環境省 ラムサール条約 国内登録湿地公表情報"
   },
   {
-    id:"dom_030", subject:"domestic", category:"モデルコース 中部",
+    id:"dom_030", subject:"domestic", category:"モデルコース穴埋め",
     question:"次のモデルコースの空欄に当てはまる観光地として、最も適当なものはどれか。「米原駅 ― ( ) ― 百済寺 ― 近江八幡 ― 大津駅」",
     choices:[
       "伊賀上野城",
@@ -1856,7 +1856,7 @@ const QUESTIONS = [
      I. 旅行業法令（追加20問・問31〜50）
      ============================================================ */
   {
-    id:"law_031", subject:"law", category:"法第2条 登録要否 別業態",
+    id:"law_031", subject:"law", category:"法第2条 登録要否",
     question:"報酬を得て事業として行う次の行為のうち、旅行業の登録を要するものはどれか。",
     choices:[
       "新聞社が、自社で運営する読者向け企画として、他社運営の船舶クルーズと宿泊をセットにしたツアーを募集して販売する行為",
@@ -1882,7 +1882,7 @@ const QUESTIONS = [
     source:"旅行業法 第4条、同施行規則"
   },
   {
-    id:"law_033", subject:"law", category:"法第6条 登録拒否事由 別パターン",
+    id:"law_033", subject:"law", category:"法第6条 登録拒否事由",
     question:"次の者のうち、旅行業の登録の拒否事由に該当するものはどれか。",
     choices:[
       "禁錮以上の刑に処せられ、その執行を終わってから6年を経過した者",
@@ -1908,7 +1908,7 @@ const QUESTIONS = [
     source:"旅行業法 第6条の2"
   },
   {
-    id:"law_035", subject:"law", category:"法第7条 営業保証金 別パターン",
+    id:"law_035", subject:"law", category:"法第7条 営業保証金",
     question:"営業保証金の供託の方法に関する次の記述のうち、誤っているものはどれか。",
     choices:[
       "営業保証金は、金銭又は国債証券その他の国土交通省令で定める有価証券で供託することができる",
@@ -1934,7 +1934,7 @@ const QUESTIONS = [
     source:"旅行業法 第11条の3、同施行規則"
   },
   {
-    id:"law_037", subject:"law", category:"法第12条の4 説明事項 別パターン",
+    id:"law_037", subject:"law", category:"法第12条の4 取引条件説明・書面交付",
     question:"旅行業者等が旅行者と契約を締結しようとするときの取引条件の説明事項として、次のうち定められていないものはどれか（企画旅行契約の場合）。",
     choices:[
       "旅行業者の登録番号",
@@ -1947,7 +1947,7 @@ const QUESTIONS = [
     source:"旅行業法 第12条の4、同施行規則"
   },
   {
-    id:"law_038", subject:"law", category:"法第12条の5 書面記載事項 別パターン",
+    id:"law_038", subject:"law", category:"法第12条の5 契約書面記載事項",
     question:"次のうち、企画旅行契約締結時に旅行者へ交付する書面の記載事項として定められていないものはどれか。",
     choices:[
       "旅行者が旅行業者に支払うべき対価及びその収受の方法",
@@ -1960,7 +1960,7 @@ const QUESTIONS = [
     source:"旅行業法 第12条の5、同施行規則"
   },
   {
-    id:"law_039", subject:"law", category:"法第12条の7 広告 別パターン",
+    id:"law_039", subject:"law", category:"法第12条の7 企画旅行広告",
     question:"企画旅行に参加する旅行者を募集するための広告に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "広告には、企画者の名称、住所及び登録番号を表示すれば、登録年月日や有効期間は表示する必要がない",
@@ -1973,7 +1973,7 @@ const QUESTIONS = [
     source:"旅行業法 第12条の7、同施行規則"
   },
   {
-    id:"law_040", subject:"law", category:"法第12条の10 円滑実施措置 別パターン",
+    id:"law_040", subject:"law", category:"法第12条の10 円滑実施措置",
     question:"企画旅行の円滑な実施のための措置に関する次の記述のうち、誤っているものはどれか。",
     choices:[
       "旅行業者は、旅行に関する計画に定めるサービスの提供を確実にするため、旅行開始前に必要な予約その他の措置を講じなければならない",
@@ -1986,7 +1986,7 @@ const QUESTIONS = [
     source:"旅行業法 第12条の10、同施行規則"
   },
   {
-    id:"law_041", subject:"law", category:"法第12条の11 旅程管理 別パターン",
+    id:"law_041", subject:"law", category:"法第12条の11 旅程管理主任者",
     question:"旅程管理業務を行う者に関する次の記述のうち、誤っているものはどれか。",
     choices:[
       "旅程管理業務を行う主任の者は、登録研修機関が実施する旅程管理研修を修了している必要がある",
@@ -1999,7 +1999,7 @@ const QUESTIONS = [
     source:"旅行業法 第12条の11、同施行規則"
   },
   {
-    id:"law_042", subject:"law", category:"法第14条の2 受託契約 別パターン",
+    id:"law_042", subject:"law", category:"法第14条の2 受託契約",
     question:"受託契約に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "委託旅行業者は、複数の他の旅行業者を受託旅行業者とする受託契約を締結することができる",
@@ -2025,7 +2025,7 @@ const QUESTIONS = [
     source:"旅行業法 第14条の2第3項"
   },
   {
-    id:"law_044", subject:"law", category:"法第19条 取消事由 別パターン",
+    id:"law_044", subject:"law", category:"法第19条 登録の取消し等",
     question:"旅行業法第19条「登録の取消し等」に関する次の記述のうち、誤っているものはどれか。",
     choices:[
       "登録行政庁は、旅行業者等が法令に違反したときは、6月以内の期間を定めて業務の全部もしくは一部の停止を命じ、又は登録を取り消すことができる",
@@ -2038,7 +2038,7 @@ const QUESTIONS = [
     source:"旅行業法 第19条、第6条"
   },
   {
-    id:"law_045", subject:"law", category:"法第23条 手配業 別パターン",
+    id:"law_045", subject:"law", category:"法第23条 旅行サービス手配業",
     question:"旅行サービス手配業に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "旅行サービス手配業者は、旅行業務取扱管理者を選任しなければならない",
@@ -2051,7 +2051,7 @@ const QUESTIONS = [
     source:"旅行業法 第27条、第28条"
   },
   {
-    id:"law_046", subject:"law", category:"法第41条 旅行業協会業務 別パターン",
+    id:"law_046", subject:"law", category:"法第41条 旅行業協会業務",
     question:"旅行業協会の業務に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "旅行業協会は、旅行業者代理業を営む者からの加入申込みを受け、その者を社員として加入させることができる",
@@ -2077,7 +2077,7 @@ const QUESTIONS = [
     source:"旅行業法 第49条、第50条"
   },
   {
-    id:"law_048", subject:"law", category:"法第18条の3 業務改善 別パターン",
+    id:"law_048", subject:"law", category:"法第18条の3 業務改善命令",
     question:"旅行業法第18条の3「業務改善命令」の発出について、登録行政庁が命じることができる事項として、次のうち誤っているものはどれか。",
     choices:[
       "旅行業約款を変更すること",
@@ -2090,7 +2090,7 @@ const QUESTIONS = [
     source:"旅行業法 第18条の3、同施行規則"
   },
   {
-    id:"law_049", subject:"law", category:"法第12条の9 標識 別パターン",
+    id:"law_049", subject:"law", category:"法第12条の9 標識",
     question:"旅行業者等の標識に関する次の記述のうち、誤っているものはどれか。",
     choices:[
       "旅行業者等の標識には、その住所及び氏名又は名称を記載しなければならない",
@@ -2103,7 +2103,7 @@ const QUESTIONS = [
     source:"旅行業法 第12条の9、同施行規則"
   },
   {
-    id:"law_050", subject:"law", category:"法第12条 取扱料金 別パターン",
+    id:"law_050", subject:"law", category:"法第12条 取扱料金",
     question:"旅行業務の取扱料金（企画旅行に係るものを除く）に関する次の記述のうち、誤っているものはどれか。",
     choices:[
       "旅行業者は、事業の開始前に旅行業務の取扱料金を定め、これをその営業所において掲示しなければならない",
@@ -2120,7 +2120,7 @@ const QUESTIONS = [
      II. 約款（追加20問・問31〜50）
      ============================================================ */
   {
-    id:"ykk_031", subject:"yakkan", category:"募集型 手配代行者 別パターン",
+    id:"ykk_031", subject:"yakkan", category:"募集型 契約の申込み",
     question:"標準旅行業約款（募集型企画旅行契約の部）における手配代行者に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "旅行業者は、契約の履行に当たり、手配の一部を本邦内に限らず本邦外の他の旅行業者や手配を業として行う者その他の補助者に代行させることがある",
@@ -2133,7 +2133,7 @@ const QUESTIONS = [
     source:"標準旅行業約款 募集型企画旅行契約の部 第3条"
   },
   {
-    id:"ykk_032", subject:"yakkan", category:"募集型 旅行代金支払期日",
+    id:"ykk_032", subject:"yakkan", category:"募集型 旅行代金の払戻し",
     question:"標準旅行業約款（募集型企画旅行契約の部）における旅行代金の支払いに関する次の記述のうち、誤っているものはどれか。",
     choices:[
       "旅行者は、旅行開始日までの契約書面に記載する期日までに、旅行業者に対し、旅行代金を支払わなければならない",
@@ -2146,7 +2146,7 @@ const QUESTIONS = [
     source:"標準旅行業約款 募集型企画旅行契約の部 第12条、第16条、第17条"
   },
   {
-    id:"ykk_033", subject:"yakkan", category:"募集型 旅程保証 識別 別パターン",
+    id:"ykk_033", subject:"yakkan", category:"募集型 旅程保証",
     question:"標準旅行業約款（募集型企画旅行契約の部）における旅程保証に関し、次の場合のうち、変更補償金の支払を要しないものはどれか（いずれも約款が定める支払いが必要な最低額を上回っているものとする）。",
     choices:[
       "契約書面に「Aホテル スタンダードツインルームに宿泊」と記載されていたが、Aホテルの過剰予約受付のため、Bホテルのスタンダードツインルームに変更されたとき",
@@ -2159,7 +2159,7 @@ const QUESTIONS = [
     source:"標準旅行業約款 募集型企画旅行契約の部 第29条 別表第二"
   },
   {
-    id:"ykk_034", subject:"yakkan", category:"募集型 旅程保証 補償金額 別パターン",
+    id:"ykk_034", subject:"yakkan", category:"募集型 旅程保証",
     question:"標準旅行業約款（募集型企画旅行契約の部）における変更補償金の取扱いに関する次の記述のうち、正しいものはどれか。",
     choices:[
       "旅行業者が支払うべき変更補償金の額は、旅行者1名に対して1募集型企画旅行につき、旅行代金に20%を乗じた額を限度とする",
@@ -2172,7 +2172,7 @@ const QUESTIONS = [
     source:"標準旅行業約款 募集型企画旅行契約の部 第29条"
   },
   {
-    id:"ykk_035", subject:"yakkan", category:"募集型 取消料 別パターン",
+    id:"ykk_035", subject:"yakkan", category:"募集型 旅行者の解除権",
     question:"標準旅行業約款（募集型企画旅行契約の部）における旅行者の解除権と取消料に関する次の記述のうち、誤っているものはどれか。",
     choices:[
       "国内旅行（日帰り旅行を除く）について、旅行開始日の前日に旅行者が自己都合により契約を解除した場合、取消料は旅行代金の40%以内の額となる",
@@ -2185,7 +2185,7 @@ const QUESTIONS = [
     source:"標準旅行業約款 募集型企画旅行契約の部 第16条 別表第一"
   },
   {
-    id:"ykk_036", subject:"yakkan", category:"特別補償 死亡補償金額",
+    id:"ykk_036", subject:"yakkan", category:"特別補償 入院・通院・死亡見舞金",
     question:"標準旅行業約款（特別補償規程）における死亡補償金の取扱いに関する次の記述のうち、正しいものはどれか。",
     choices:[
       "国内旅行における死亡補償金の額は、旅行者1名につき1,500万円である",
@@ -2198,7 +2198,7 @@ const QUESTIONS = [
     source:"標準旅行業約款 特別補償規程"
   },
   {
-    id:"ykk_037", subject:"yakkan", category:"特別補償 携帯品損害 控除",
+    id:"ykk_037", subject:"yakkan", category:"特別補償 携帯品損害補償",
     question:"標準旅行業約款（特別補償規程）における携帯品損害補償金に関する次の記述のうち、誤っているものはどれか。",
     choices:[
       "携帯品損害補償金は、旅行者1名につき1携帯品ごとに10万円を限度として支払う",
@@ -2211,7 +2211,7 @@ const QUESTIONS = [
     source:"標準旅行業約款 特別補償規程"
   },
   {
-    id:"ykk_038", subject:"yakkan", category:"受注型 企画書面",
+    id:"ykk_038", subject:"yakkan", category:"受注型企画旅行",
     question:"標準旅行業約款（受注型企画旅行契約の部）における企画書面に関する次の記述のうち、誤っているものはどれか。",
     choices:[
       "旅行業者は、契約の申込みをしようとする旅行者からの依頼があったときは、業務上の都合があるときを除き、当該依頼の内容に沿って作成した旅行日程、旅行サービスの内容、旅行代金その他の旅行条件に関する企画の内容を記載した企画書面を交付する",
@@ -2224,7 +2224,7 @@ const QUESTIONS = [
     source:"標準旅行業約款 受注型企画旅行契約の部"
   },
   {
-    id:"ykk_039", subject:"yakkan", category:"手配旅行 別パターン",
+    id:"ykk_039", subject:"yakkan", category:"手配旅行契約",
     question:"標準旅行業約款（手配旅行契約の部）に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "旅行業者は、旅行サービスの手配について、運送・宿泊機関等の運賃・料金で代金として既に収受した金額に不足が生じたときは、旅行終了後、速やかに旅行者から不足額を収受する",
@@ -2237,7 +2237,7 @@ const QUESTIONS = [
     source:"標準旅行業約款 手配旅行契約の部"
   },
   {
-    id:"ykk_040", subject:"yakkan", category:"旅行相談 別パターン",
+    id:"ykk_040", subject:"yakkan", category:"旅行相談契約",
     question:"標準旅行業約款（旅行相談契約の部）に関する次の記述のうち、誤っているものはどれか。",
     choices:[
       "旅行業者は、相談料金を収受することを約して、旅行者の委託により、旅行に関する助言、計画書の作成、見積りなどの相談業務を行う",
@@ -2250,7 +2250,7 @@ const QUESTIONS = [
     source:"標準旅行業約款 旅行相談契約の部"
   },
   {
-    id:"ykk_041", subject:"yakkan", category:"一般貸切バス 別パターン",
+    id:"ykk_041", subject:"yakkan", category:"一般貸切バス標準運送約款",
     question:"一般貸切旅客自動車運送事業標準運送約款に関する次の記述のうち、誤っているものはどれか。",
     choices:[
       "バス会社は、所定の運賃及び料金の他、高速道路通行料、駐車料、有料道路通行料金等の実費を契約責任者から収受する",
@@ -2263,7 +2263,7 @@ const QUESTIONS = [
     source:"一般貸切旅客自動車運送事業標準運送約款"
   },
   {
-    id:"ykk_042", subject:"yakkan", category:"フェリー 手回り品",
+    id:"ykk_042", subject:"yakkan", category:"フェリー標準運送約款",
     question:"海上運送法第9条第3項の規定に基づく標準運送約款（フェリー）における手回り品に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "「手回り品」とは、旅客が自ら携帯又は同伴して船室に持ち込む物であって、3辺の長さの和が2メートル以下で、かつ、重量が30キログラム以下の物品をいう",
@@ -2276,7 +2276,7 @@ const QUESTIONS = [
     source:"海上運送法第9条第3項の規定に基づく標準運送約款"
   },
   {
-    id:"ykk_043", subject:"yakkan", category:"フェリー 通用期間",
+    id:"ykk_043", subject:"yakkan", category:"フェリー標準運送約款",
     question:"海上運送法第9条第3項の規定に基づく標準運送約款（フェリー）における乗船券の通用期間に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "片道乗船距離が100キロメートル以上200キロメートル未満の片道券は、指定便に係るものを除き、発売当日を含めて4日間以上の期間を定めて券面に記載する",
@@ -2289,7 +2289,7 @@ const QUESTIONS = [
     source:"海上運送法第9条第3項の規定に基づく標準運送約款"
   },
   {
-    id:"ykk_044", subject:"yakkan", category:"JR 団体運賃割引 期別",
+    id:"ykk_044", subject:"yakkan", category:"JR旅客営業規則",
     question:"JR旅客営業規則における普通団体の旅客運賃割引率の取扱いに関する次の記述のうち、正しいものはどれか。",
     choices:[
       "普通団体の旅客運賃の割引率は、団体旅行の出発日が属する取扱期によって異なる",
@@ -2302,7 +2302,7 @@ const QUESTIONS = [
     source:"JR旅客営業規則"
   },
   {
-    id:"ykk_045", subject:"yakkan", category:"モデル宿泊約款 違約金率",
+    id:"ykk_045", subject:"yakkan", category:"モデル宿泊約款 違約金",
     question:"モデル宿泊約款における違約金率に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "宿泊客が宿泊の前日に解除の通知をしたときは、基本宿泊料の20%を違約金とする",
@@ -2315,7 +2315,7 @@ const QUESTIONS = [
     source:"モデル宿泊約款 別表第二"
   },
   {
-    id:"ykk_046", subject:"yakkan", category:"ANA プレミアム 別パターン",
+    id:"ykk_046", subject:"yakkan", category:"ANA国内旅客運送約款",
     question:"国内旅客運送約款（全日本空輸）におけるプレミアム運賃に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "プレミアム運賃は、追加料金を支払うことにより航空券の名義を変更することができる",
@@ -2328,7 +2328,7 @@ const QUESTIONS = [
     source:"全日本空輸 国内線運送約款・運賃規則"
   },
   {
-    id:"ykk_047", subject:"yakkan", category:"ANA 座席予約期限",
+    id:"ykk_047", subject:"yakkan", category:"ANA 運賃種別",
     question:"国内旅客運送約款（全日本空輸）における座席予約と航空券購入期限に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "ANA SUPER VALUE 75（ANAスーパーバリュー75）の座席予約販売は、搭乗日75日前の午前9時30分から開始される",
@@ -2341,7 +2341,7 @@ const QUESTIONS = [
     source:"全日本空輸 国内線運送約款・運賃規則"
   },
   {
-    id:"ykk_048", subject:"yakkan", category:"ANA 往復ディスカウント",
+    id:"ykk_048", subject:"yakkan", category:"ANA 運賃種別",
     question:"国内旅客運送約款（全日本空輸）における往復ディスカウントに関する次の記述のうち、正しいものはどれか。",
     choices:[
       "ANA VALUE 1（ANAバリュー1）は往復ディスカウントの対象運賃であり、往復で同時に予約・購入することにより、片道運賃の5%相当額が割り引かれる",
@@ -2354,7 +2354,7 @@ const QUESTIONS = [
     source:"全日本空輸 国内線運送約款・運賃規則"
   },
   {
-    id:"ykk_049", subject:"yakkan", category:"募集型 帰路手配",
+    id:"ykk_049", subject:"yakkan", category:"募集型 旅行代金の払戻し",
     question:"標準旅行業約款（募集型企画旅行契約の部）における契約解除後の帰路手配に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "旅行業者は、官公署の命令により旅行の継続が不可能となったため、旅行開始後に契約の一部を解除したときは、旅行者の求めに応じて、旅行者が当該旅行の出発地に戻るために必要な旅行サービスの手配を引き受ける",
@@ -2367,7 +2367,7 @@ const QUESTIONS = [
     source:"標準旅行業約款 募集型企画旅行契約の部 第18条"
   },
   {
-    id:"ykk_050", subject:"yakkan", category:"募集型 旅行業者責任 別パターン",
+    id:"ykk_050", subject:"yakkan", category:"募集型 旅行業者の責任",
     question:"標準旅行業約款（募集型企画旅行契約の部）における旅行業者の責任に関する次の記述のうち、誤っているものはどれか。",
     choices:[
       "旅行業者は、旅行業者の故意又は過失により旅行者に損害（手荷物を除く）を与えた場合、損害発生の翌日から起算して2年以内に通知があったときに限り賠償する",
@@ -2384,7 +2384,7 @@ const QUESTIONS = [
      III. 国内旅行実務（追加20問・問31〜50）
      ============================================================ */
   {
-    id:"dom_031", subject:"domestic", category:"貸切バス 深夜早朝運行料金",
+    id:"dom_031", subject:"domestic", category:"貸切バス 計算",
     question:"貸切バスの深夜早朝運行料金の適用に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "深夜早朝運行料金は、運行時間が22時から翌朝5時までの時間帯に該当する時間について、所定の運賃に加えて収受される",
@@ -2397,7 +2397,7 @@ const QUESTIONS = [
     source:"一般貸切旅客自動車運送事業の運賃・料金（関東運輸局長公示）"
   },
   {
-    id:"dom_032", subject:"domestic", category:"貸切バス フェリー航送上限",
+    id:"dom_032", subject:"domestic", category:"貸切バス 計算",
     question:"貸切バスがフェリーで航送される場合の時間制運賃の取扱いに関する次の記述のうち、正しいものはどれか。",
     choices:[
       "フェリー航送中の時間は、時間制運賃の対象時間に全く算入されない",
@@ -2410,7 +2410,7 @@ const QUESTIONS = [
     source:"一般貸切旅客自動車運送事業の運賃・料金（関東運輸局長公示）"
   },
   {
-    id:"dom_033", subject:"domestic", category:"フェリー 自動二輪",
+    id:"dom_033", subject:"domestic", category:"フェリー 自動車航送",
     question:"フェリーの特殊手荷物としての自動二輪車の取扱いに関する次の記述のうち、正しいものはどれか（標準運送約款によるものとする）。",
     choices:[
       "自動二輪車は、排気量にかかわらず一律の特殊手荷物運賃が適用される",
@@ -2423,7 +2423,7 @@ const QUESTIONS = [
     source:"海上運送法第9条第3項の規定に基づく標準運送約款"
   },
   {
-    id:"dom_034", subject:"domestic", category:"フェリー 自転車",
+    id:"dom_034", subject:"domestic", category:"フェリー 自動車航送",
     question:"フェリーの特殊手荷物としての自転車の取扱いに関する次の記述のうち、正しいものはどれか（標準運送約款によるものとする）。",
     choices:[
       "自転車は、いかなる場合でも手回り品として扱われ、特殊手荷物運賃を支払う必要はない",
@@ -2436,7 +2436,7 @@ const QUESTIONS = [
     source:"海上運送法第9条第3項の規定に基づく標準運送約款"
   },
   {
-    id:"dom_035", subject:"domestic", category:"JR 寝台料金 サンライズ",
+    id:"dom_035", subject:"domestic", category:"JR 寝台料金",
     question:"特急サンライズ出雲・瀬戸の利用に必要な料金に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "シングルデラックス（A寝台個室）に大人1人で乗車する場合、運賃に加えて特急料金とA寝台料金（個室寝台料金）が必要となる",
@@ -2449,7 +2449,7 @@ const QUESTIONS = [
     source:"JR旅客営業規則・各社料金規則"
   },
   {
-    id:"dom_036", subject:"domestic", category:"JR 新幹線特急料金 通算",
+    id:"dom_036", subject:"domestic", category:"JR 新幹線特急料金",
     question:"JR新幹線の特急料金の通算に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "東海道新幹線の駅で改札を出ずに山陽新幹線に乗り継ぐ場合、両新幹線の特急料金は通算される",
@@ -2462,7 +2462,7 @@ const QUESTIONS = [
     source:"JR旅客営業規則"
   },
   {
-    id:"dom_037", subject:"domestic", category:"JR 払戻し 別パターン",
+    id:"dom_037", subject:"domestic", category:"JR 払戻し",
     question:"JR乗車券類の払戻し手数料に関する次の記述のうち、正しいものはどれか（払戻しは旅客都合、購入時から変更なし、有効期間内とする）。",
     choices:[
       "未使用の指定席特急券を、列車出発の前日までに払戻す場合、所定の払戻手数料は340円である",
@@ -2475,7 +2475,7 @@ const QUESTIONS = [
     source:"JR旅客営業規則"
   },
   {
-    id:"dom_038", subject:"domestic", category:"ANA 取消手数料 別パターン",
+    id:"dom_038", subject:"domestic", category:"ANA 取消手数料",
     question:"全日本空輸（ANA）の国内線における取消手数料率に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "ANA SUPER VALUE 75（ANAスーパーバリュー75）を搭乗日30日前に取り消す場合、運賃額の50%相当額の取消手数料が必要である",
@@ -2488,7 +2488,7 @@ const QUESTIONS = [
     source:"全日本空輸 国内線運送約款・運賃規則"
   },
   {
-    id:"dom_039", subject:"domestic", category:"モデル宿泊約款 子供料金",
+    id:"dom_039", subject:"domestic", category:"モデル宿泊約款 料金計算",
     question:"モデル宿泊約款における子供料金の取扱いに関する次の記述のうち、正しいものはどれか。",
     choices:[
       "小学生で大人に準じる食事と寝具を提供する子供の宿泊料金は、大人料金の70%である",
@@ -2501,7 +2501,7 @@ const QUESTIONS = [
     source:"モデル宿泊約款"
   },
   {
-    id:"dom_040", subject:"domestic", category:"モデル宿泊約款 時間外利用",
+    id:"dom_040", subject:"domestic", category:"モデル宿泊約款 料金計算",
     question:"モデル宿泊約款における時間外客室使用追加料金に関する次の記述のうち、正しいものはどれか。",
     choices:[
       "チェックアウト時刻を3時間以内に超過して使用した場合、基本宿泊料の1/3に相当する額を追加料金として収受する",
@@ -2514,7 +2514,7 @@ const QUESTIONS = [
     source:"モデル宿泊約款 別表第一"
   },
   {
-    id:"dom_041", subject:"domestic", category:"地理 北海道 別パターン",
+    id:"dom_041", subject:"domestic", category:"地理 北海道",
     question:"北海道東部に位置し、阿寒摩周国立公園の中心地でもある日本最大級のカルデラ湖で、美幌峠からの展望が有名な湖として、正しいものはどれか。",
     choices:[
       "支笏湖",
@@ -2527,7 +2527,7 @@ const QUESTIONS = [
     source:"環境省 国立公園公表情報"
   },
   {
-    id:"dom_042", subject:"domestic", category:"地理 東北 別パターン",
+    id:"dom_042", subject:"domestic", category:"地理 東北",
     question:"宮城県松島町に所在し、伊達政宗ゆかりの臨済宗妙心寺派の寺院で、本堂・庫裡及び廊下が国宝に指定されている寺として、正しいものはどれか。",
     choices:[
       "瑞巌寺",
@@ -2540,7 +2540,7 @@ const QUESTIONS = [
     source:"文化庁 国指定文化財等データベース"
   },
   {
-    id:"dom_043", subject:"domestic", category:"地理 関東 別パターン",
+    id:"dom_043", subject:"domestic", category:"地理 関東",
     question:"鎌倉幕府の初代将軍源頼朝ゆかりの神社で、若宮大路の参道と石造りの太鼓橋で知られる神奈川県の神社として、正しいものはどれか。",
     choices:[
       "鶴岡八幡宮",
@@ -2553,7 +2553,7 @@ const QUESTIONS = [
     source:"神奈川県観光協会公表情報"
   },
   {
-    id:"dom_044", subject:"domestic", category:"地理 近畿 別パターン",
+    id:"dom_044", subject:"domestic", category:"地理 近畿",
     question:"三重県伊勢市に所在し、内宮と外宮からなる神社の総称で、20年に一度の式年遷宮で知られる神社として、正しいものはどれか。",
     choices:[
       "伊勢神宮",
@@ -2566,7 +2566,7 @@ const QUESTIONS = [
     source:"三重県観光連盟公表情報"
   },
   {
-    id:"dom_045", subject:"domestic", category:"地理 九州沖縄 別パターン",
+    id:"dom_045", subject:"domestic", category:"地理 九州沖縄",
     question:"鹿児島県南端に位置し、温泉と砂むし風呂で有名な温泉地として、正しいものはどれか。",
     choices:[
       "霧島温泉",
@@ -2579,7 +2579,7 @@ const QUESTIONS = [
     source:"鹿児島県観光連盟公表情報"
   },
   {
-    id:"dom_046", subject:"domestic", category:"世界遺産 別パターン",
+    id:"dom_046", subject:"domestic", category:"世界遺産",
     question:"2019年にユネスコの世界文化遺産に登録され、大阪府堺市・羽曳野市・藤井寺市にまたがる、4世紀後半から5世紀後半にかけて築造された大規模な古墳群として、正しいものはどれか。",
     choices:[
       "百舌鳥・古市古墳群",
@@ -2592,7 +2592,7 @@ const QUESTIONS = [
     source:"文化庁 / UNESCO 公表情報"
   },
   {
-    id:"dom_047", subject:"domestic", category:"ラムサール条約 別パターン",
+    id:"dom_047", subject:"domestic", category:"ラムサール条約",
     question:"ラムサール条約の登録湿地のうち、北海道に所在する登録地として、正しいものはどれか。",
     choices:[
       "釧路湿原",
@@ -2605,7 +2605,7 @@ const QUESTIONS = [
     source:"環境省 ラムサール条約 国内登録湿地公表情報"
   },
   {
-    id:"dom_048", subject:"domestic", category:"国立公園 別パターン",
+    id:"dom_048", subject:"domestic", category:"国立公園",
     question:"次のうち、上信越高原国立公園の区域内にある観光地として、正しいものはどれか。",
     choices:[
       "草津温泉",
@@ -2618,7 +2618,7 @@ const QUESTIONS = [
     source:"環境省 国立公園公表情報"
   },
   {
-    id:"dom_049", subject:"domestic", category:"モデルコース 九州",
+    id:"dom_049", subject:"domestic", category:"モデルコース穴埋め",
     question:"次のモデルコースの空欄に当てはまる観光地として、最も適当なものはどれか。「博多駅 ― 太宰府天満宮 ― ( ) ― 阿蘇山 ― 熊本駅」",
     choices:[
       "高千穂峡",
@@ -2631,7 +2631,7 @@ const QUESTIONS = [
     source:"九州観光機構公表情報"
   },
   {
-    id:"dom_050", subject:"domestic", category:"組合せ判定 温泉×観光地 別",
+    id:"dom_050", subject:"domestic", category:"組合せ判定 温泉×観光地",
     question:"次の温泉と観光地の組合せのうち、その所在地がすべて同じ都道府県にあるものはどれか。",
     choices:[
       "嬉野温泉 ― 吉野ヶ里遺跡 ― 祐徳稲荷神社",
@@ -2944,7 +2944,7 @@ function renderHome(){
     const hintCard = el("div", {class:"card"});
     hintCard.appendChild(el("div", {class:"card-head"}, "苦手論点 Top 5"));
     hintCard.appendChild(el("div", {class:"empty"},
-      "各論点で2回以上演習すると、苦手論点が表示されます。同じ問題を繰り返し解いて、論点別の習熟度を測定します。"));
+      "各論点で2問以上解くと、苦手論点が表示されます。同じ分野の問題を複数解いて、論点別の習熟度を測定します。"));
     root.appendChild(hintCard);
   }
 
@@ -3563,7 +3563,7 @@ function renderSettings(){
 
   card.appendChild(el("div", {class:"note"}, [
     el("strong", null, "Phase 3 メモ: "),
-    document.createTextNode("問題数を 150問（各科目50問）に拡充し、論点マスター（R3-R7）の頻度5論点をさらに別角度から問う問題を充実させました。今後は問題のさらなる質的向上や、新機能（フラッシュカード、PWA化等）の検討を進める予定です。")
+    document.createTextNode("問題数を 150問（各科目50問）に拡充しました。また、論点（カテゴリ）を統合・正規化し、異なる問題でも同じ論点として集計されるよう改善しました。これにより、同じ問題を繰り返さなくても論点別の習熟度測定・苦手論点抽出が機能するようになりました。")
   ]));
 
   root.appendChild(card);
