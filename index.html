@@ -10,6 +10,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="国内管理者演習">
 <meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -753,7 +756,7 @@ details.exam-details summary:hover{color:var(--vermillion-dark)}
    いません。
    ============================================================ */
 
-const APP_VERSION = "0.8.0-phase5";
+const APP_VERSION = "0.8.2-phase5";
 const STORAGE_KEY = "kokunai_kanri_data_v1";
 
 /* ---------- 科目定義 ---------- */
@@ -5583,77 +5586,118 @@ function render(){
     `国内旅行業務取扱管理者試験 問題演習  /  v${APP_VERSION}`));
 }
 
-/* ---------- PWA: manifest 動的生成 ---------- */
-(function setupManifest(){
-  try{
-    // アプリアイコン（和風の朱印イメージSVG）
-    const iconSvg =
-      '<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">' +
-      '<rect width="512" height="512" fill="#1a2b4a"/>' +
-      '<rect x="56" y="56" width="400" height="400" fill="none" stroke="#b88a2a" stroke-width="8"/>' +
-      '<text x="256" y="210" font-family="serif" font-size="150" font-weight="700" fill="#fbfaf4" text-anchor="middle">国内</text>' +
-      '<text x="256" y="370" font-family="serif" font-size="150" font-weight="700" fill="#b8362a" text-anchor="middle">管理</text>' +
-      '</svg>';
-    const iconUrl = "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(iconSvg)));
+/* ---------- PWA: manifest（実ファイルがあればそれを使い、無ければ動的生成） ----------
+   HTMLには <link rel="manifest" href="manifest.webmanifest"> を静的に記述済み。
+   manifest.webmanifest と icon-192.png / icon-512.png が同階層にあれば
+   それが使われる（インストール可能性が最も高い標準構成）。
+   実ファイルが無い環境（単体HTMLのみ）では、以下が動的にフォールバック生成する。 */
+(function setupManifestFallback(){
+  // 既存の静的manifestリンクが実ファイルとして取得できるか確認
+  const existing = document.querySelector('link[rel="manifest"]');
+  const manifestHref = existing ? existing.href : null;
 
-    const manifest = {
-      name: "国内旅行業務取扱管理者試験 問題演習",
-      short_name: "国内管理者演習",
-      description: "国内旅行業務取扱管理者試験の独学用問題演習アプリ（非公式）",
-      start_url: ".",
-      scope: ".",
-      display: "standalone",
-      orientation: "portrait",
-      background_color: "#f4f1e8",
-      theme_color: "#1a2b4a",
-      lang: "ja",
-      icons: [
-        { src: iconUrl, sizes: "192x192", type: "image/svg+xml", purpose: "any" },
-        { src: iconUrl, sizes: "512x512", type: "image/svg+xml", purpose: "any maskable" }
-      ]
-    };
-    const manifestUrl = "data:application/manifest+json;base64," +
-      btoa(unescape(encodeURIComponent(JSON.stringify(manifest))));
-    const link = document.createElement("link");
-    link.rel = "manifest";
-    link.href = manifestUrl;
-    document.head.appendChild(link);
-
-    // Apple touch icon
-    const appleIcon = document.createElement("link");
-    appleIcon.rel = "apple-touch-icon";
-    appleIcon.href = iconUrl;
-    document.head.appendChild(appleIcon);
-
-    // favicon
-    const favicon = document.createElement("link");
-    favicon.rel = "icon";
-    favicon.href = iconUrl;
-    document.head.appendChild(favicon);
-  }catch(e){
-    console.warn("manifest setup failed", e);
+  function buildDynamicManifest(){
+    try{
+      function makeIconPng(size){
+        const canvas = document.createElement("canvas");
+        canvas.width = size; canvas.height = size;
+        const ctx = canvas.getContext("2d");
+        const s = size / 512;
+        ctx.fillStyle = "#1a2b4a";
+        ctx.fillRect(0, 0, size, size);
+        ctx.strokeStyle = "#b88a2a";
+        ctx.lineWidth = 8 * s;
+        ctx.strokeRect(56 * s, 56 * s, 400 * s, 400 * s);
+        ctx.textAlign = "center";
+        ctx.font = "700 " + (150 * s) + "px serif";
+        ctx.fillStyle = "#fbfaf4";
+        ctx.fillText("国内", 256 * s, 210 * s);
+        ctx.fillStyle = "#b8362a";
+        ctx.fillText("管理", 256 * s, 370 * s);
+        return canvas.toDataURL("image/png");
+      }
+      const icon192 = makeIconPng(192);
+      const icon512 = makeIconPng(512);
+      const baseUrl = location.href.substring(0, location.href.lastIndexOf("/") + 1);
+      const manifest = {
+        name: "国内旅行業務取扱管理者試験 問題演習",
+        short_name: "国内管理者演習",
+        description: "国内旅行業務取扱管理者試験の独学用問題演習アプリ（非公式）",
+        start_url: baseUrl,
+        scope: baseUrl,
+        id: baseUrl,
+        display: "standalone",
+        orientation: "portrait",
+        background_color: "#f4f1e8",
+        theme_color: "#1a2b4a",
+        lang: "ja",
+        icons: [
+          { src: icon192, sizes: "192x192", type: "image/png", purpose: "any" },
+          { src: icon512, sizes: "512x512", type: "image/png", purpose: "any" },
+          { src: icon512, sizes: "512x512", type: "image/png", purpose: "maskable" }
+        ]
+      };
+      const manifestBlob = new Blob([JSON.stringify(manifest)], {type:"application/manifest+json"});
+      const manifestUrl = URL.createObjectURL(manifestBlob);
+      // 既存の静的リンクを置き換える（または新規追加）
+      if(existing){ existing.href = manifestUrl; }
+      else {
+        const link = document.createElement("link");
+        link.rel = "manifest";
+        link.href = manifestUrl;
+        document.head.appendChild(link);
+      }
+      // アイコンも動的版に差し替え（実ファイルが無い場合）
+      let appleIcon = document.querySelector('link[rel="apple-touch-icon"]');
+      if(!appleIcon){ appleIcon = document.createElement("link"); appleIcon.rel = "apple-touch-icon"; document.head.appendChild(appleIcon); }
+      appleIcon.href = icon192;
+      let favicon = document.querySelector('link[rel="icon"]');
+      if(!favicon){ favicon = document.createElement("link"); favicon.rel = "icon"; document.head.appendChild(favicon); }
+      favicon.href = icon192;
+    }catch(e){
+      console.warn("dynamic manifest failed", e);
+    }
   }
+
+  if(!manifestHref){
+    buildDynamicManifest();
+    return;
+  }
+  // 実ファイルの manifest が取得できるか確認。取得できなければ動的生成にフォールバック
+  fetch(manifestHref, {method:"GET"}).then((resp)=>{
+    if(!resp || !resp.ok){
+      buildDynamicManifest();
+    }
+    // 取得できた場合は静的manifestをそのまま使う（何もしない）
+  }).catch(()=>{
+    buildDynamicManifest();
+  });
 })();
 
 /* ---------- PWA: Service Worker 登録（オフライン対応） ----------
-   注意: 単一HTMLファイルをそのまま配信する構成では、Blob由来のSWは
-   スコープ制限によりページ全体を制御できないことがある。そのため、
-   別ファイル sw.js が同階層に存在する場合のみ登録を試みる。
-   sw.js がなければ何もしない（manifestによるホーム画面追加は有効）。
-   file:// では一切登録しない。 */
+   別ファイル sw.js が同階層に存在する場合に登録する。
+   sw.js がオフライン化とインストール可能性（fetchハンドラ）を担う。
+   sw.js が無くても manifest によるホーム画面追加は可能。
+   file:// では登録しない。 */
 (function setupServiceWorker(){
   if(!("serviceWorker" in navigator)) return;
   if(location.protocol !== "https:" && location.hostname !== "localhost" && location.hostname !== "127.0.0.1") return;
-  // 同階層の sw.js を探して、存在する場合のみ登録する
-  const swPath = location.href.substring(0, location.href.lastIndexOf("/") + 1) + "sw.js";
-  fetch(swPath, {method:"HEAD"}).then((resp)=>{
+  // 同階層の sw.js の絶対URLを組み立てる
+  const base = location.href.substring(0, location.href.lastIndexOf("/") + 1);
+  const swUrl = base + "sw.js";
+  // sw.js の存在を確認してから登録（存在しない場合の登録エラーを避ける）
+  fetch(swUrl, {method:"GET", cache:"no-store"}).then((resp)=>{
     if(resp && resp.ok){
-      navigator.serviceWorker.register("sw.js").catch((err)=>{
+      navigator.serviceWorker.register(swUrl, {scope: base}).then(()=>{
+        console.log("Service Worker 登録成功");
+      }).catch((err)=>{
         console.warn("SW registration failed", err);
       });
+    } else {
+      console.warn("sw.js が見つかりません。オフライン機能は無効です（ホーム画面追加は利用可能）。");
     }
   }).catch(()=>{
-    // sw.js が無い場合は何もしない（PWAのホーム画面追加機能は manifest で有効）
+    console.warn("sw.js の確認に失敗しました。オフライン機能は無効です。");
   });
 })();
 

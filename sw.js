@@ -13,7 +13,10 @@ const CACHE_NAME = "kokunai-kanri-v1";
 const PRECACHE_URLS = [
   "./",
   "./index.html",
-  "./Domestic_Travel_Services_Manager.html"
+  "./Domestic_Travel_Services_Manager.html",
+  "./manifest.webmanifest",
+  "./icon-192.png",
+  "./icon-512.png"
 ];
 
 // インストール時：主要リソースを事前キャッシュ
