@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>国内旅行業務取扱管理者試験 問題演習</title>
-<meta name="description" content="国内旅行業務取扱管理者試験の独学用問題演習アプリ。一次資料に基づく独自問題210問・模試・苦手論点抽出・フラッシュカード・デイリーチャレンジを収録した非公式学習ツール。">
+<meta name="description" content="国内旅行業務取扱管理者試験の独学用問題演習アプリ。一次資料に基づく独自問題270問・本試験準拠の模試・苦手論点抽出・デイリーチャレンジを収録した非公式学習ツール。">
 <meta name="theme-color" content="#1a2b4a">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -618,73 +618,6 @@ details.exam-details summary:hover{color:var(--vermillion-dark)}
 }
 .review-q-meta{font-size:11px;color:var(--ink-faint);flex:1}
 
-/* Flashcard (フラッシュカード) */
-.flash-top{
-  display:flex;justify-content:space-between;align-items:center;
-  margin-bottom:18px;font-size:12px;color:var(--ink-soft);
-}
-.flash-progress{font-family:var(--font-serif);letter-spacing:.1em}
-.flashcard{
-  perspective:1600px;
-  margin-bottom:20px;
-  min-height:320px;
-  cursor:pointer;
-}
-.flashcard-inner{
-  position:relative;width:100%;min-height:320px;
-  transition:transform .5s;transform-style:preserve-3d;
-}
-.flashcard.flipped .flashcard-inner{transform:rotateY(180deg)}
-.flashcard-face{
-  position:absolute;width:100%;min-height:320px;
-  backface-visibility:hidden;-webkit-backface-visibility:hidden;
-  background:var(--paper);border:1px solid var(--line);
-  box-shadow:var(--shadow);
-  padding:30px 28px;
-  display:flex;flex-direction:column;
-}
-.flashcard-face.back{transform:rotateY(180deg)}
-.flashcard-label{
-  font-size:11px;letter-spacing:.3em;text-transform:uppercase;
-  margin-bottom:14px;font-weight:500;
-}
-.flashcard-face.front .flashcard-label{color:var(--gold)}
-.flashcard-face.back .flashcard-label{color:var(--vermillion)}
-.flashcard-cat{font-size:12px;color:var(--ink-faint);margin-bottom:12px}
-.flashcard-q{
-  font-family:var(--font-serif);font-size:17px;font-weight:500;line-height:1.85;
-  color:var(--ink);flex:1;
-}
-.flashcard-a{
-  font-family:var(--font-serif);font-size:16px;font-weight:700;line-height:1.8;
-  color:var(--correct);margin-bottom:14px;
-}
-.flashcard-exp{
-  font-size:13px;line-height:1.8;color:var(--ink);flex:1;
-  overflow-y:auto;
-}
-.flashcard-source{
-  font-size:10px;color:var(--ink-faint);margin-top:12px;
-  padding-top:10px;border-top:1px dashed var(--line);letter-spacing:.05em;
-}
-.flashcard-hint{
-  text-align:center;font-size:11px;color:var(--ink-faint);
-  margin-top:auto;padding-top:14px;letter-spacing:.1em;
-}
-.flash-nav{display:flex;gap:10px;justify-content:space-between;align-items:center}
-.flash-confidence{
-  display:flex;gap:8px;justify-content:center;margin:14px 0;
-}
-.flash-conf-btn{
-  flex:1;max-width:160px;padding:10px;border:1px solid var(--line);
-  background:var(--paper);cursor:pointer;font-size:13px;font-weight:500;
-  transition:all .15s;font-family:var(--font-sans);
-}
-.flash-conf-btn.again{color:var(--vermillion)}
-.flash-conf-btn.again:hover{background:var(--incorrect-bg);border-color:var(--vermillion)}
-.flash-conf-btn.got{color:var(--correct)}
-.flash-conf-btn.got:hover{background:var(--correct-bg);border-color:var(--correct)}
-
 /* Daily challenge (デイリーチャレンジ) */
 .daily-banner{
   background:linear-gradient(135deg, var(--ink), #2a3f63);
@@ -737,8 +670,6 @@ details.exam-details summary:hover{color:var(--vermillion-dark)}
   .mock-history-row .date{min-width:0}
   .topic-checks{grid-template-columns:1fr;max-height:240px}
   .review-tab{padding:8px 12px;font-size:13px}
-  .flashcard-face{padding:22px 18px}
-  .flashcard-q{font-size:15px}
 }
 </style>
 </head>
@@ -756,7 +687,7 @@ details.exam-details summary:hover{color:var(--vermillion-dark)}
    いません。
    ============================================================ */
 
-const APP_VERSION = "0.9.0-phase6";
+const APP_VERSION = "0.9.2-phase6";
 const STORAGE_KEY = "kokunai_kanri_data_v1";
 
 /* ---------- 科目定義 ---------- */
@@ -4345,14 +4276,12 @@ const state = {
   screen: "home",
   practice: null,
   mock: null,
-  flash: null,            // フラッシュカードの状態
   data: loadData(),
   selectedSubject: null,
   practiceCount: null,
   selectedTopics: null,   // 論点フィルタ用：選択中の論点キー集合
   reviewTab: "bookmark",  // 復習画面タブ："bookmark" | "wrong"
   masteryFilter: "all",   // 論点画面フィルタ："all" | "weak" | "unattempted" など
-  flashSubject: "all",    // フラッシュカードの対象科目
   mockMode: "standard"    // 模試モード："standard"（本試験準拠）|"quick"（簡易）
 };
 
@@ -4629,7 +4558,6 @@ function headerEl(){
     el("div", {class:"hdr-nav"}, [
       nav_a("ホーム", "home"),
       nav_a("演習", "subject-select"),
-      nav_a("カード", "flash-intro"),
       nav_a("模試", "mock-intro"),
       nav_a("復習", "review"),
       nav_a("論点", "mastery"),
@@ -5559,187 +5487,6 @@ function startReviewPractice(tab){
 }
 
 /* ============================================================
-   フラッシュカード
-   ------------------------------------------------------------
-   問題を表（問題文）／裏（正解＋解説）で確認する暗記モード。
-   「もう一度」「覚えた」で自己評価し、苦手なカードを繰り返せる。
-   ============================================================ */
-
-/* ---------- 画面: フラッシュカード イントロ ---------- */
-function renderFlashIntro(){
-  const root = el("div", {class:"screen"});
-  root.appendChild(headerEl());
-
-  const card = el("div", {class:"card"});
-  card.appendChild(el("div", {class:"card-head"}, "フラッシュカード"));
-  card.appendChild(el("div", {style:"font-size:13px;color:var(--ink-soft);line-height:1.85;margin-bottom:8px"},
-    "問題文を見て頭の中で答えを思い浮かべ、カードをめくって正解と解説を確認する暗記学習モードです。採点は記録されず、気軽に繰り返せます。"));
-
-  // 科目選択
-  card.appendChild(el("div", {style:"font-size:12px;letter-spacing:.15em;color:var(--ink-faint);margin-top:16px;text-transform:uppercase"}, "対象科目"));
-  const subjRow = el("div", {class:"count-row"});
-  const opts = [{id:"all", name:"全科目"}].concat(SUBJECTS.map(s=>({id:s.id, name:s.name})));
-  opts.forEach(o=>{
-    subjRow.appendChild(el("button", {
-      class:"count-chip" + (state.flashSubject===o.id?" active":""),
-      onclick:()=>{ state.flashSubject = o.id; render(); }
-    }, o.name));
-  });
-  card.appendChild(subjRow);
-
-  // 出題数
-  const pool = state.flashSubject === "all" ? QUESTIONS : QUESTIONS.filter(q=>q.subject===state.flashSubject);
-  card.appendChild(el("div", {style:"font-size:12px;color:var(--ink-faint);margin-top:14px"},
-    `対象: ${pool.length}問（ランダムに出題されます）`));
-
-  card.appendChild(el("div", {class:"btn-row", style:"margin-top:20px"}, [
-    el("button", {class:"btn btn-primary", onclick:()=>startFlash(state.flashSubject, 20)}, "20枚で開始"),
-    el("button", {class:"btn", onclick:()=>startFlash(state.flashSubject, pool.length)}, "全部で開始"),
-    el("button", {class:"btn btn-ghost", onclick:()=>nav("home")}, "戻る"),
-  ]));
-
-  // ブックマークがあればそれもカード化できる
-  const bm = getBookmarkedQuestions();
-  if(bm.length > 0){
-    card.appendChild(el("div", {style:"margin-top:18px;padding-top:14px;border-top:1px dashed var(--line-soft)"}, [
-      el("div", {style:"font-size:12px;color:var(--ink-soft);margin-bottom:10px"},
-        `ブックマークした ${bm.length}問 をカードで復習することもできます。`),
-      el("button", {class:"btn btn-ghost", onclick:()=>startFlashFromList(bm, "ブックマーク")}, "ブックマークをカードで見る")
-    ]));
-  }
-
-  root.appendChild(card);
-  return root;
-}
-
-function startFlash(subjectId, count){
-  const pool = subjectId === "all" ? QUESTIONS : QUESTIONS.filter(q=>q.subject===subjectId);
-  if(pool.length === 0){ toast("対象問題がありません"); return; }
-  const actualCount = Math.min(count, pool.length);
-  const queue = shuffle(pool).slice(0, actualCount).map(q=>q.id);
-  state.flash = {
-    queue, idx: 0, flipped: false,
-    again: [],           // 「もう一度」に振り分けたqid
-    got: 0,              // 「覚えた」の枚数
-    label: subjectId === "all" ? "全科目" : SUBJECT_BY_ID[subjectId].name
-  };
-  nav("flash");
-}
-
-function startFlashFromList(questions, label){
-  if(questions.length === 0){ toast("対象問題がありません"); return; }
-  const queue = shuffle(questions).map(q=>q.id);
-  state.flash = { queue, idx:0, flipped:false, again:[], got:0, label };
-  nav("flash");
-}
-
-/* ---------- 画面: フラッシュカード ---------- */
-function renderFlash(){
-  const f = state.flash;
-  if(!f){ return renderFlashIntro(); }
-  if(f.idx >= f.queue.length){ return renderFlashResult(); }
-
-  const q = QUESTIONS.find(x=>x.id===f.queue[f.idx]);
-  if(!q){ return renderFlashIntro(); }
-
-  const root = el("div", {class:"screen"});
-  root.appendChild(headerEl());
-
-  // 進捗
-  root.appendChild(el("div", {class:"flash-top"}, [
-    el("div", {class:"flash-progress"}, `${f.idx+1} / ${f.queue.length}  -  ${f.label}`),
-    el("div", null, `覚えた: ${f.got}`)
-  ]));
-
-  const marks = ["ア","イ","ウ","エ","オ"];
-  const subj = SUBJECT_BY_ID[q.subject];
-
-  // カード本体
-  const cardInner = el("div", {class:"flashcard-inner"}, [
-    // 表面（問題）
-    el("div", {class:"flashcard-face front"}, [
-      el("div", {class:"flashcard-label"}, `${subj.no}. ${subj.name}`),
-      el("div", {class:"flashcard-cat"}, q.category),
-      el("div", {class:"flashcard-q"}, q.question),
-      el("div", {class:"flashcard-hint"}, "タップして答えを見る")
-    ]),
-    // 裏面（正解＋解説）
-    el("div", {class:"flashcard-face back"}, [
-      el("div", {class:"flashcard-label"}, "正解と解説"),
-      el("div", {class:"flashcard-a"}, `正解: ${marks[q.answer]}  ${q.choices[q.answer]}`),
-      el("div", {class:"flashcard-exp"}, q.explanation),
-      el("div", {class:"flashcard-source"}, `出典: ${q.source}`)
-    ])
-  ]);
-  const flashcard = el("div", {class:"flashcard" + (f.flipped?" flipped":""), onclick:()=>{ f.flipped = !f.flipped; render(); }}, [cardInner]);
-  root.appendChild(flashcard);
-
-  // 裏面表示時のみ自己評価ボタン
-  if(f.flipped){
-    root.appendChild(el("div", {class:"flash-confidence"}, [
-      el("button", {class:"flash-conf-btn again", onclick:()=>flashNext(false)}, "もう一度"),
-      el("button", {class:"flash-conf-btn got", onclick:()=>flashNext(true)}, "覚えた"),
-    ]));
-  } else {
-    root.appendChild(el("div", {class:"flash-confidence"}, [
-      el("button", {class:"flash-conf-btn", style:"max-width:none;color:var(--ink-soft)", onclick:()=>{ f.flipped = true; render(); }}, "答えを見る"),
-    ]));
-  }
-
-  root.appendChild(el("div", {class:"flash-nav"}, [
-    el("button", {class:"btn btn-ghost", onclick:()=>quitFlash()}, "終了する"),
-    el("div", {style:"flex:1"}),
-    el("button", {class:"btn btn-ghost", onclick:()=>{ if(!q) return; toggleBookmark(q.id); render(); }},
-      isBookmarked(q.id) ? "★ ブックマーク中" : "☆ ブックマーク"),
-  ]));
-
-  return root;
-}
-
-function flashNext(got){
-  const f = state.flash;
-  if(!f) return;
-  const qid = f.queue[f.idx];
-  if(got){ f.got++; }
-  else { f.again.push(qid); }
-  f.idx++;
-  f.flipped = false;
-  // 全部終わったら、「もう一度」がある場合は続けて出題
-  if(f.idx >= f.queue.length && f.again.length > 0){
-    f.queue = f.again.slice();
-    f.again = [];
-    f.idx = 0;
-    toast("「もう一度」のカードを繰り返します");
-  }
-  render();
-}
-
-function quitFlash(){
-  if(confirm("フラッシュカードを終了しますか？")){
-    state.flash = null;
-    nav("home");
-  }
-}
-
-function renderFlashResult(){
-  const f = state.flash;
-  const root = el("div", {class:"screen"});
-  root.appendChild(headerEl());
-
-  root.appendChild(el("div", {class:"result-score"}, [
-    el("div", {class:"label"}, `フラッシュカード完了 -- ${f.label}`),
-    el("div", {class:"ratio", html:`${f.got}<span class="total"> 枚</span>`}),
-    el("div", {class:"pct"}, "すべてのカードを「覚えた」にしました")
-  ]));
-
-  root.appendChild(el("div", {class:"btn-row"}, [
-    el("button", {class:"btn btn-primary", onclick:()=>{ state.flash=null; nav("flash-intro"); }}, "もう一度カードで学習"),
-    el("button", {class:"btn btn-ghost", onclick:()=>{ state.flash=null; nav("home"); }}, "ホームに戻る"),
-  ]));
-  return root;
-}
-
-/* ============================================================
    デイリーチャレンジ
    ------------------------------------------------------------
    日付固定で全員同じ10問。1日1回。連続日数（ストリーク）を記録。
@@ -6438,8 +6185,6 @@ function render(){
     case "mock": view = renderMock(); break;
     case "mock-result": view = renderMockResult(); break;
     case "review": view = renderReview(); break;
-    case "flash-intro": view = renderFlashIntro(); break;
-    case "flash": view = renderFlash(); break;
     case "mastery": view = renderMastery(); break;
     case "history": view = renderHistory(); break;
     case "settings": view = renderSettings(); break;
